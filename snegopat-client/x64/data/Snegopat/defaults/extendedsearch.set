@@ -1,0 +1,14 @@
+ExtendedSearch/CaseSensetive	{"B",0}
+ExtendedSearch/HistoryDepth	{"N",15}
+ExtendedSearch/IsRegExp	{"B",0}
+ExtendedSearch/IsVertical	{"B",0}
+ExtendedSearch/ProcessArea	{"N",0}
+ExtendedSearch/ReplaceHistory	{"#",4772b3b4-f4a3-49c0-a1a5-8cb5961511a3,\n{6,1e512aab-1b41-4ef6-9375-f0137be9dd91,0,0,\n{0},\n{"Pattern"},0,-1}\n}
+ExtendedSearch/SearchHistory	{"#",4772b3b4-f4a3-49c0-a1a5-8cb5961511a3,\n{6,1e512aab-1b41-4ef6-9375-f0137be9dd91,0,0,\n{10,\n{1e512aab-1b41-4ef6-9375-f0137be9dd91,\n{"",0,\n{"S","мПолучитьКонтрагента"},\n{4,0,\n{0},"",-1,-1,0,0,""},9,0,""}\n},\n{1e512aab-1b41-4ef6-9375-f0137be9dd91,\n{"",0,\n{"S","ТсОбщий"},\n{4,0,\n{0},"",-1,-1,0,0,""},8,0,""}\n},\n{1e512aab-1b41-4ef6-9375-f0137be9dd91,\n{"",0,\n{"S","НаименованиеРеквизитаКонтрагента"},\n{4,0,\n{0},"",-1,-1,0,0,""},7,0,""}\n},\n{1e512aab-1b41-4ef6-9375-f0137be9dd91,\n{"",0,\n{"S","СформироватьСписокПредпринимателей"},\n{4,0,\n{0},"",-1,-1,0,0,""},6,0,""}\n},\n{1e512aab-1b41-4ef6-9375-f0137be9dd91,\n{"",0,\n{"S","УстановитьПараметр"},\n{4,0,\n{0},"",-1,-1,0,0,""},5,0,""}\n},\n{1e512aab-1b41-4ef6-9375-f0137be9dd91,\n{"",0,\n{"S","ОбъектДоступа"},\n{4,0,\n{0},"",-1,-1,0,0,""},4,0,""}\n},\n{1e512aab-1b41-4ef6-9375-f0137be9dd91,\n{"",0,\n{"S","Иначе"},\n{4,0,\n{0},"",-1,-1,0,0,""},3,0,""}\n},\n{1e512aab-1b41-4ef6-9375-f0137be9dd91,\n{"",0,\n{"S","РасчетыВУсловныхЕдиницах"},\n{4,0,\n{0},"",-1,-1,0,0,""},2,0,""}\n},\n{1e512aab-1b41-4ef6-9375-f0137be9dd91,\n{"",0,\n{"S","ДоговорКонтрагента"},\n{4,0,\n{0},"",-1,-1,0,0,""},1,0,""}\n},\n{1e512aab-1b41-4ef6-9375-f0137be9dd91,\n{"",0,\n{"S","ВидРасчетовПоДоговору"},\n{4,0,\n{0},"",-1,-1,0,0,""},0,0,""}\n}\n},\n{"Pattern"},0,9}\n}
+ExtendedSearch/ShowReplace	{"B",0}
+ExtendedSearch/TreeView	{"B",1}
+ExtendedSearch/WholeWords	{"B",0}
+ExtendedSearch/mdFilter	{"S",""}
+ExtendedSearch/mdFilterHistory	{"#",4772b3b4-f4a3-49c0-a1a5-8cb5961511a3,\n{6,1e512aab-1b41-4ef6-9375-f0137be9dd91,0,0,\n{0},\n{"Pattern"},0,-1}\n}
+ExtendedSearch/mdFilterUse	{"B",0}
+ExtendedSearch/threadCount	{"N",25}

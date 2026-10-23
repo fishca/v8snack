@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+; Windows 11 24H2 подменяет JScript на JScript9Legacy; из-за этого скриптовые аддины Снегопата не работают.
+; Этот файл возвращает прежний движок JScript только для текущего пользователя (права администратора не нужны).
+; После применения закройте и заново откройте Конфигуратор.
+[HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Internet Explorer\Main]
+"JScriptReplacement"=dword:00000000

@@ -1,0 +1,22 @@
+﻿<html><head>
+                <link rel="stylesheet" href="../www/md.css" type="text/css"/>
+                <title>Метод childObject</title></head><body><h3 id="метод-childobject">Метод childObject</h3><a name="метод-childobject"></a>
+<blockquote>
+<p>портировано</p>
+</blockquote>
+<p>Позволяет получить дочерний объект заданного вида по его индексу.<br>Синтаксис:</p>
+<pre><code>child = md.childObject(ВидОбъектов, Индекс)
+</code></pre><p>Параметры:</p>
+<ul>
+<li>ВидОбъектов. Обязательный. Строка или Число.  Указывается либо номер вида дочерних объектов,
+начиная с 0, либо гуид вида, либо его название.</li>
+<li>Индекс. Обязательный. Строка или Число.  Указывается либо номер дочернего объекта,
+начиная с 0, либо гуид дочернего объекта, либо его название.</li>
+</ul>
+<p>Возвращает: <a href="../help\docs_snegapi.md101.html#IV8MDObject">IV8MDObject</a>. Указанный дочерний объект.</p>
+<p>Пример:</p>
+<pre><code>// Получить первый документ основной конфигурации
+var mdDoc = metadata.current.rootObject.childObject(&quot;Документы&quot;, 0)
+// Получить справочник по имени
+var mdRef = metadata.current.rootObject.childObject(&quot;Справочники&quot;, &quot;Номенклатура&quot;)
+</code></pre></body>

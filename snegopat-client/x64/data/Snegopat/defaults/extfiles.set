@@ -1,0 +1,10 @@
+ExtFiles/ColorDeleted	{"#",9cd510c7-abfc-11d4-9434-004095e12fc7,2,\n{3,0,\n{255}\n}\n}
+ExtFiles/ColorModiefed	{"#",9cd510c7-abfc-11d4-9434-004095e12fc7,2,\n{3,0,\n{65535}\n}\n}
+ExtFiles/ColorNotVersioned	{"#",9cd510c7-abfc-11d4-9434-004095e12fc7,2,\n{3,0,\n{12632256}\n}\n}
+ExtFiles/Open1CExtensions	{"#",acf6192e-81ca-46ef-93a6-5a6968b78663,\n{9,\n{1,\n{0,"Расширение",\n{"Pattern"},"",0}\n},\n{2,1,0,0,\n{1,24,\n{2,0,1,\n{"S","txt"},0},\n{2,1,1,\n{"S","bmp"},0},\n{2,2,1,\n{"S","dib"},0},\n{2,3,1,\n{"S","png"},0},\n{2,4,1,\n{"S","rle"},0},\n{2,5,1,\n{"S","jpg"},0},\n{2,6,1,\n{"S","jpeg"},0},\n{2,7,1,\n{"S","tif"},0},\n{2,8,1,\n{"S","ico"},0},\n{2,9,1,\n{"S","mxl"},0},\n{2,10,1,\n{"S","epf"},0},\n{2,11,1,\n{"S","erf"},0},\n{2,12,1,\n{"S","htm"},0},\n{2,13,1,\n{"S","html"},0},\n{2,14,1,\n{"S","grs"},0},\n{2,15,1,\n{"S","geo"},0},\n{2,16,1,\n{"S","st"},0},\n{2,17,1,\n{"S","lgf"},0},\n{2,18,1,\n{"S","elf"},0},\n{2,19,1,\n{"S","cf"},0},\n{2,20,1,\n{"S","pff"},0},\n{2,21,1,\n{"S","ssf"},0},\n{2,22,1,\n{"S","js"},0},\n{2,23,1,\n{"S","vbs"},0}\n},-1,23},\n{0,0}\n}\n}
+ExtFiles/OpenOnStart	{"B",1}
+ExtFiles/Path	{"S","{""#"",acf6192e-81ca-46ef-93a6-5a6968b78663,\n{9,\n{2,\n{0,""ИмяКаталога"",\n{""Pattern"",\n{""S""}\n},""Имя каталога"",36},\n{1,""Развернуть"",\n{""Pattern"",\n{""B""}\n},""Развернуть"",0}\n},\n{2,2,0,0,1,1,\n{1,0},1,0},\n{0,0}\n}\n}"}
+ExtFiles/RunConsoleCommand	{"S","cmd.exe /K cd /D ""%1"""}
+ExtFiles/ShowExtInName	{"B",1}
+ExtFiles/VersionControl	{"B",1}
+ExtFiles/ViewSearchInList	{"B",0}

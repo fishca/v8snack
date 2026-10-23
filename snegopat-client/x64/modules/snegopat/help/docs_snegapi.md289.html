@@ -1,0 +1,15 @@
+﻿<html><head>
+                <link rel="stylesheet" href="../www/md.css" type="text/css"/>
+                <title>Метод attachStorage</title></head><body><h3 id="метод-attachstorage">Метод attachStorage</h3><a name="метод-attachstorage"></a>
+<p>Позволяет работать с файлом как с контейнерным файлом.<br>Синтаксис:</p>
+<pre><code>cf = v8files.attachStorage(ИсходныйФайл, [СоздатьНовый])
+</code></pre><p>Параметры:</p>
+<ul>
+<li>ИсходныйФайл. Объект <a href="../help\docs_snegapi.md290.html#IV8DataFile">IV8DataFile</a>, исходный открытый файл.</li>
+<li>[СоздатьНовый]. Булево. По-умолчанию false. Создавать новый контейнерный файл.
+Если указано false, а исходный файл не является контейнерным файлом,
+генерируется исключение.</li>
+</ul>
+<p>Возвращает: объект <a href="../help\docs_snegapi.md300.html#IV8StorageFile">IV8StorageFile</a>, через который можно работать с
+содержимым контейнера.</p>
+</body>

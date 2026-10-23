@@ -1,0 +1,21 @@
+﻿<html><head>
+                <link rel="stylesheet" href="../www/md.css" type="text/css"/>
+                <title>Метод open</title></head><body><h3 id="метод-open">Метод open</h3><a name="метод-open"></a>
+<p>Открывает файл в контейнере.
+Синтаксис:</p>
+<pre><code>file = stg.open(ИмяФайла, РежимОткрытия)
+</code></pre><p>Параметры:</p>
+<ul>
+<li>ИмяФайла. Строка. Задает имя открываемого файла.</li>
+<li>РежимОткрытия. Число. Задает режим открытия:<ul>
+<li>fomAppend = 0x1, Не очищать файл при открытии</li>
+<li>fomTruncate = 0x2, Очистить файл при открытии</li>
+<li>fomIn = 0x8, Открыть файл для чтения</li>
+<li>fomOut = 0x10, Открыть файл для записи</li>
+<li>fomShareRead = 0x100, Разделяемое чтение</li>
+<li>fomShareWrite = 0x200, Разделяемая запись</li>
+</ul>
+</li>
+</ul>
+<p>Возвращает: объект <a href="../help\docs_snegapi.md290.html#IV8DataFile">IV8DataFile</a>, открытый файл.</p>
+</body>

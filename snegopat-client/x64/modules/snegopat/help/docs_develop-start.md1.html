@@ -1,0 +1,99 @@
+﻿<html><head>
+                <link rel="stylesheet" href="../www/md.css" type="text/css"/>
+                <title>Первичная настройка</title></head><body><h2 id="первичная-настройка">Первичная настройка</h2><a name="первичная-настройка"></a>
+<p>Начать его использование для разработки помогут несколько простых шагов. </p>
+<ol>
+<li>Скачиваем и устанавливаем Visual Studio Code: <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+<li>Скачиваем и устанавливаем TypeScript: <a href="http://www.typescriptlang.org/">http://www.typescriptlang.org/</a>  <ul>
+<li>Снегопат использует для своих скриптов TypeScript 2.6<ul>
+<li>его можно скачать отсюда: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=55258">https://www.microsoft.com/en-us/download/details.aspx?id=55258</a><ul>
+<li>в разделе Details есть нужный релиз. <ul>
+<li>Чтобы команда <code>tsc</code> запускалась отовсюду, можно добавить каталог <code>&quot;c:\Program Files (x86)\Microsoft SDKs\TypeScript\2.6&quot;</code> в переменную окружения <code>PATH</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>В папке снегопата, рядом с папками <code>addins</code> и <code>core</code> - создаем папку <code>custom</code>.<ul>
+<li>Снегопат в ней ищет дополнительные пользовательские аддины.</li>
+</ul>
+</li>
+<li>Создаем папку для разработки, например <code>develop</code>, можно тоже в папке снегопата, рядом с <code>addins</code> и <code>custom</code>.</li>
+<li>В этой папке создаём подпапку <code>std</code>.</li>
+<li>Копируем все <code>*.ts</code> файлы из <code>core\scripts\src</code> в папку <code>develop\std</code>.</li>
+<li>В папке <code>develop</code> запускаем команду <code>tsc --init</code><ul>
+<li>Она создаст файл проекта <code>tsconfig.json</code></li>
+</ul>
+</li>
+<li><p>В этом файле </p>
+<ul>
+<li><p>исправляем путь к каталогу сборки, параметр <code>outDir</code>. В нем надо прописать путь к каталогу <code>custom</code>. </p>
+<ul>
+<li>Если папка <code>develop</code> рядом с ним, просто укажите: <code>&quot;outDir&quot;: &quot;../custom&quot;</code>,<ul>
+<li>И добавьте рядом параметры </li>
+</ul>
+</li>
+<li><code>&quot;emitBOM&quot;: true</code></li>
+<li><code>&quot;newLine&quot;: &quot;LF&quot;</code></li>
+<li><code>&quot;noImplicitUseStrict&quot;: true</code></li>
+</ul>
+<p>Файл будет выглядеть примерно так</p>
+<pre><code class="lang-json">   {
+       &quot;compilerOptions&quot;: {
+           &quot;module&quot;: &quot;commonjs&quot;,
+           &quot;newLine&quot;: &quot;LF&quot;,
+           &quot;noImplicitUseStrict&quot;: true,
+           &quot;target&quot;: &quot;es3&quot;,
+           &quot;noImplicitAny&quot;: false,
+           &quot;outDir&quot;: &quot;../custom&quot;,
+           &quot;rootDir&quot;: &quot;.&quot;,
+           &quot;sourceMap&quot;: false,
+           &quot;emitBOM&quot;: true
+       },
+       &quot;exclude&quot;: [
+           &quot;node_modules&quot;
+       ]
+   }
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>Запускаем Visual Studio Code: <code>code.exe &quot;путь к папке develop&quot;</code></p>
+</li>
+<li><p>Жмем <code>Ctrl+Shift+P</code>, набираем <code>conf</code>, </p>
+<ul>
+<li>выбираем <code>Tasks: Configure Default Build Task</code>,</li>
+<li>далее <code>tsc: build - tsconfig.json</code></li>
+</ul>
+<p>Откроется окно с настройками сборки</p>
+<pre><code class="lang-json">    {
+        &quot;version&quot;: &quot;2.0.0&quot;,
+        &quot;tasks&quot;: [
+            {
+                &quot;type&quot;: &quot;typescript&quot;,
+                &quot;tsconfig&quot;: &quot;tsconfig.json&quot;,
+                &quot;problemMatcher&quot;: [
+                    &quot;$tsc&quot;
+                ],
+                &quot;group&quot;: {
+                    &quot;kind&quot;: &quot;build&quot;,
+                    &quot;isDefault&quot;: true
+                },
+                &quot;label&quot;: &quot;tsc: build - tsconfig.json&quot;
+            }
+        ]
+    }
+</code></pre>
+</li>
+<li><p>В окне снегопата в меню <code>Разработка</code> по очереди нажимаем <code>Сдампить SnegAPI в snegopat.d.ts</code> и <code>Сдампить типы 1С в v8.d.ts</code>. Файлы создадутся в каталоге снегопата.</p>
+<ul>
+<li>Перемещаем их в каталог разработки (<code>develop</code>).</li>
+</ul>
+</li>
+<li><p>Это всё!</p>
+</li>
+</ol>
+</body>

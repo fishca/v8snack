@@ -1,0 +1,6 @@
+# Снегопат пишет это в рантайме — в репозитории не нужно
+snegopat-client/x64/logs/*.txt
+snegopat-client/x64/logs/*.log
+snegopat-client/x64/data/Snegopat/settings/
+snegopat-client/x64/journal/*
+snegopat-client/x64/autosavedata/*
