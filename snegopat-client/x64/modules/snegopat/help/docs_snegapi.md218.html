@@ -1,0 +1,17 @@
+﻿<html><head>
+                <link rel="stylesheet" href="../www/md.css" type="text/css"/>
+                <title>Метод loadAddin</title></head><body><h3 id="метод-loadaddin">Метод loadAddin</h3><a name="метод-loadaddin"></a>
+<p>Загружает аддин.<br>Синтаксис:</p>
+<pre><code>addind = addins.loadAddin(СтрокаЗагрузки, ГруппаАддинов)
+</code></pre><p>Параметры:</p>
+<ul>
+<li>СтрокаЗагрузки. Строка. Задает строку загрузки аддина.
+Состоит из названия загрузчика, двоеточия, и данных для загрузчика
+аддинов. Например для скриптов строка имеет вид:
+<code>script:путь к файлу скрипта</code>, для dll: <code>dll:путь к dll-файлу</code>.
+Различные расширения могут регистрировать свои загрузчики аддинов.</li>
+<li>ГруппаАддинов. Объект <a href="../help\docs_snegapi.md231.html#IAddinGroup">IAddinGroup</a>. Группа, в которую
+надо загрузить аддин.</li>
+</ul>
+<p>Возвращает: объект <a href="../help\docs_snegapi.md223.html#IAddin">IAddin</a> для загруженного аддина.</p>
+</body>

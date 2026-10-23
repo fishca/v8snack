@@ -1,0 +1,15 @@
+﻿<html><head>
+                <link rel="stylesheet" href="../www/md.css" type="text/css"/>
+                <title>Просмотр снимка стека</title></head><body><h1 id="просмотр-снимка-стека">Просмотр снимка стека</h1><a name="просмотр-снимка-стека"></a>
+<table width="100%" cellspacing="0" cellpadding="5">
+                    <tr style="border: none;"><td style="text-align:right;font-weight:bold;color: #CCC;border: none;">uname</td><td style="border: none;" width="95%">StackTraceView</td></tr><tr style="border: none;"><td style="text-align:right;font-weight: bold;color: #CCC;border: none;">Автор</td><td style="border: none;">Starykh Sergey (tormozit) tormozit@mail.ru</td></tr></table>
+
+<hr>
+<pre><code>Добавляет возможность переходить по текстовым ссылкам к строкам модулей. 
+Такие ссылки содержатся в описании ошибок 1С (например {ОбщаяФорма.ФормаУпр.Форма(6)}: Ошибка при вызове метода контекста ...).
+При вызове из формы журнала регистрации берет комментарий текущего события. 
+В остальных случаях при открытии берет текст из буфера обмена. По умолчанию открытие снимка стека назначается на `ALT+SHIFT+G`.
+Не поддерживает расширения конфигураций (ограничение API). 
+Скрипт после открытия нужного модуля сможет установить курсор на нужную строку только при включенном флажке &quot;Работать при наборе текста&quot; в настройках снегопата (ограничение API).
+Более универсально эту же задачу решает менеджер буфера обмена ClipAngel http://devtool1c.ucoz.ru/forum/3-609-1.
+</code></pre></body>

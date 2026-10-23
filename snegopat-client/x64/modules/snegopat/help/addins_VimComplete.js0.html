@@ -1,0 +1,23 @@
+﻿<html><head>
+                <link rel="stylesheet" href="../www/md.css" type="text/css"/>
+                <title>Автодополнение в стиле Vim</title></head><body><h1 id="автодополнение-в-стиле-vim">Автодополнение в стиле Vim</h1><a name="автодополнение-в-стиле-vim"></a>
+<p>Автодополнение слов в стиле редактора Vim  </p>
+<table width="100%" cellspacing="0" cellpadding="5">
+                    <tr style="border: none;"><td style="text-align:right;font-weight:bold;color: #CCC;border: none;">uname</td><td style="border: none;" width="95%">VimComplete</td></tr><tr style="border: none;"><td style="text-align:right;font-weight: bold;color: #CCC;border: none;">Автор</td><td style="border: none;">Александр Кунташов</td></tr><tr style="border: none;"><td style="text-align:right;font-weight: bold;color: #CCC;border: none;">Версия</td><td style="border: none;">1.4</td></tr><tr style="border: none;"><td style="text-align:right;font-weight: bold;color: #CCC;border: none;">www</td><td style="border: none;">
+                        <a href="#" onclick="document.body.fireEvent('onhelp', document.createEventObject())" id="wwwsite">https://snegopat.ru/scripts/wiki?name=VimComplete.js</a>
+                        </td></tr></table>
+
+<hr>
+<p>Скрипт:  VimComplete.js<br>Версия:  1.4<br>Автор:   Александр Кунташов<br>Описание:<br>    Атодополнение слов в стиле редактора Vim</p>
+<p>Макрос СледующееСлово()</p>
+<p>Подбирает часть слова слева от курсора и пытается дополнить его,
+ища вперед по тексту слова, с такой же левой частью. Подставляет 
+первое подходящее. Следующий вызов макроса подставит следующее за 
+первым найденным словом и так далее по кругу (дойдя до последней строки 
+модуля поиск продолжится с первой строки). </p>
+<p>Макрос macrosПредыдущееСлово()</p>
+<p>Тоже самое, только поиск слов осуществляется в обратном направлении.</p>
+<p>В классическом Vim используются следующие хоткеи:</p>
+<pre><code>Ctrl + N  для дополнения с поиском вперед (следующее слово, Next word)
+Ctrl + P  для дополнения с поиском назад  (предыдущее слово, Previous word)
+</code></pre></body>

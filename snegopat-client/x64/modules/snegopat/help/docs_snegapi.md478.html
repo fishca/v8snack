@@ -1,0 +1,24 @@
+﻿<html><head>
+                <link rel="stylesheet" href="../www/md.css" type="text/css"/>
+                <title>Объект IDescriptionArray</title></head><body><h2 id="объект-idescriptionarray">Объект IDescriptionArray</h2><a name="объект-idescriptionarray"></a>
+<blockquote>
+<p>не портировано</p>
+</blockquote>
+<p>Набор описаний элементов системы типов, прочитанных из файла v8types.txt.
+Каждый элемент унаследован от общего класса <a href="../help\docs_snegapi.md480.html#IDescription">IDescription</a>.</p>
+<p>В этом наборе могут находится элементы следующих типов:</p>
+<ul>
+<li><a href="../help\docs_snegapi.md483.html#ITypeDescription">ITypeDescription</a> - описание типа.</li>
+<li><a href="../help\docs_snegapi.md491.html#IMethDescription">IMethDescription</a> - описание метода типа.</li>
+<li><a href="../help\docs_snegapi.md496.html#IMethSyntaxDescription">IMethSyntaxDescription</a> - описание синтаксиса метода.</li>
+<li><a href="../help\docs_snegapi.md498.html#IParamDescription">IParamDescription</a> - описание параметра в синтаксисе метода.</li>
+<li><a href="../help\docs_snegapi.md500.html#IPropDescription">IPropDescription</a> - описание свойства типа.</li>
+</ul>
+<p>В некоторых из элементов есть свойство <code>access</code>. Оно указывает на доступность элемента
+в разных режимах запуска:</p>
+<p>|1 |Сервер            |
+|2 |Толстый клиент    |
+|4 |Тонкий клиент     |
+|8 |Веб-клиент        |
+|16|Внешнее соединение|</p>
+</body>

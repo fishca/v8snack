@@ -1,0 +1,17 @@
+﻿<html><head>
+                <link rel="stylesheet" href="../www/md.css" type="text/css"/>
+                <title>Метод childObjectsCount</title></head><body><h3 id="метод-childobjectscount">Метод childObjectsCount</h3><a name="метод-childobjectscount"></a>
+<blockquote>
+<p>портировано</p>
+</blockquote>
+<p>Позволяет получить количество дочерних объектов указанного вида.<br>Синтаксис:</p>
+<pre><code>res = mdObj.childObjectsCount(ВидОбъектов)
+</code></pre><p>Параметры:</p>
+<ul>
+<li>ВидОбъектов. Обязательный. Строка или Число.  Указывается либо номер вида дочерних объектов,
+начиная с 0, либо гуид вида, либо его название.</li>
+</ul>
+<p>Возвращает: Число. Количество дочерних объектов заданного вида.</p>
+<p>Пример, узнать сколько у объекта есть табличных частей:</p>
+<pre><code>var count = mdObj.childObjectsCount(&quot;ТабличныеЧасти&quot;)
+</code></pre></body>

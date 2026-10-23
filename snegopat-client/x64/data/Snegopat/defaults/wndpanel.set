@@ -1,0 +1,5 @@
+WndPanel/ActivateOneClick	{"B",0}
+WndPanel/ActivateSearch	{"B",0}
+WndPanel/OnlyNameForExtFiles	{"B",0}
+WndPanel/OpenAtStart	{"B",1}
+WndPanel/UseSessions	{"B",1}

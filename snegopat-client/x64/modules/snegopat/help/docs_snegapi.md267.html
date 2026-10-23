@@ -1,0 +1,18 @@
+﻿<html><head>
+                <link rel="stylesheet" href="../www/md.css" type="text/css"/>
+                <title>Метод add</title></head><body><h3 id="метод-add">Метод add</h3><a name="метод-add"></a>
+<p>Добавляет новый хоткей.<br>Синтаксис:</p>
+<pre><code>hotkeys.add(КодКлавиши, ИмяАддина, ИмяМакроса)
+</code></pre><p>Параметры:</p>
+<ul>
+<li>КодКлавиши. Число. Виртуальный код клавиши + модификаторы:<ul>
+<li>hkCtrl = 0x10000. </li>
+<li>hkAlt  = 0x20000.</li>
+<li>hkShift = 0x40000.</li>
+</ul>
+</li>
+<li>ИмяАддина. Строка. Уникальное имя аддина.</li>
+<li>ИмяМакроса. Строка. Название вызываемого макроса в аддине.</li>
+</ul>
+<p>Возвращает: объект <a href="../help\docs_snegapi.md271.html#IHotKey">IHotKey</a>. Добавленный хоткей.</p>
+</body>

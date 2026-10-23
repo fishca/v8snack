@@ -1,0 +1,48 @@
+﻿<html><head>
+                <link rel="stylesheet" href="../www/md.css" type="text/css"/>
+                <title>Создание собственных скриптов</title></head><body><h2 id="создание-собственных-скриптов">Создание собственных скриптов</h2><a name="создание-собственных-скриптов"></a>
+<p>Теперь можно в этом каталоге создавать файлы с расширением <code>.ts</code>.</p>
+<p>И по нажатию <code>Ctrl+Shift+B</code> они будут компилится в <code>js-файлы</code> в каталог <code>custom</code>.
+Вместе с ними также скомпилятся еще и <code>std-скрипты</code> в папку <code>custom\std</code>, но они не помешают.</p>
+<ul>
+<li>В начале своих <code>ts-скриптов</code> пишем:</li>
+</ul>
+<pre><code class="lang-ts">        //engine: JScript
+        //uname: уникальное имя
+        //addin: global
+        ... другие теги ...
+</code></pre>
+<ul>
+<li>Подключаем <code>SnegopatAPI</code> и <code>типы 1С</code>, файлы должны лежать в этом же каталоге:</li>
+</ul>
+<pre><code class="lang-ts">        ...
+        /// &lt;reference path=&quot;./snegopat.d.ts&quot; /&gt;
+        /// &lt;reference path=&quot;./v8.d.ts&quot; /&gt;
+        ...
+</code></pre>
+<ul>
+<li>Подключаем глобальные контексты 1С</li>
+</ul>
+<pre><code class="lang-ts">        ...
+        global.connectGlobals(SelfScript);
+        ...
+</code></pre>
+<ul>
+<li>Подключаем нужные стандартные скрипты</li>
+</ul>
+<pre><code class="lang-ts">        ...
+        import * as stdlib from &quot;./std/std&quot;;
+        import * as stdcommands from &quot;./std/commands&quot;;
+        import * as hks from &quot;./std/hotkeys&quot;;
+        ...
+</code></pre>
+<p>и т.п., смотря какие скрипты нужны. </p>
+<p>В кавычках путь </p>
+<ul>
+<li>обязательно должен начинаться с точки, </li>
+<li>быть относительным каталога, где лежит скрипт, </li>
+<li>расширение <code>ts</code> не указываем.</li>
+</ul>
+<p>Также можно импортом подключать и другие свои скрипты, написанные на <code>TypeScript</code>.
+В таких скриптах обязательно какие-нибудь методы должны быть <code>export</code>, смотрите примеры в стандартных скриптах.</p>
+</body>

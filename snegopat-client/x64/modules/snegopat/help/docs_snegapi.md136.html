@@ -1,0 +1,36 @@
+﻿<html><head>
+                <link rel="stylesheet" href="../www/md.css" type="text/css"/>
+                <title>Метод childClassAt</title></head><body><h3 id="метод-childclassat">Метод childClassAt</h3><a name="метод-childclassat"></a>
+<p>Позволяет получить дочерний класс метаданных по его номеру.<br>Синтаксис:</p>
+<pre><code>classDef = mdClass.childClassAt(Индекс)
+</code></pre><p>Параметры:</p>
+<ul>
+<li>Индекс. Обязательный. Число. Номер дочернего класса, начиная с 0.</li>
+</ul>
+<p>Возвращает: объект <a href="../help\docs_snegapi.md128.html#IV8MDClass">IV8MDClass</a>, описывающий дочерний класс.</p>
+<p><code>childsClassesCount</code> и <code>childClassAt</code> позволяют создать универсальную процедуру для обхода
+всех объектов дерева метаданных, чего нельзя сделать штатным объектом Метаданные.</p>
+<p>Пример:</p>
+<pre><code>// Функция для обхода всех объектов метаданных, для каждого из них вызывается метод callback
+function forAllMdObjects(root, callback)
+{
+    callback(root)
+    var mdc = root.mdclass;
+    for(var i = 0; i &lt; mdc.childsClassesCount; i++)
+    {
+        for(var chldidx = 0, c = root.childObjectsCount(i); chldidx &lt; c; chldidx++)
+            forAllMdObjects(root.childObject(i, chldidx), callback)
+    }
+}
+// Собственно, сам вызов обхода. Например, нам надо показать все объекты, у которых непустой
+// модуль менеджера. try используется потому что возникает исключение, если у объекта
+// нет свойства МодульМенеджера, чтобы не проверять его наличие.
+forAllMdObjects(metadata.current.rootObject, function(mdObj){
+    try{
+        if(mdObj.getModuleText(&quot;МодульМенеджера&quot;).length)
+            Message(mdObj.mdclass.name(1) + &quot;.&quot; + mdObj.name)
+    }catch(e){}
+})
+</code></pre><hr>
+<p><a name="IV8MDProperty"></a></p>
+</body>
