@@ -39,7 +39,7 @@ snegopat-client/
 
 ## Версия
 
-`1.6.40`, ядро Core.As `1.0.2.4`, собрано 2026-10-22 — см. `snegopat-client/x64/version.json`.
+`1.6.42`, ядро Core.As `1.0.2.4`, собрано 2026-10-26 — см. `snegopat-client/x64/version.json`.
 
 ## Отказ от ответственности
 
