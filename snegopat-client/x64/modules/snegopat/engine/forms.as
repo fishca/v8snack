@@ -314,7 +314,12 @@ bool loadScriptForm(IFile&& file, IDispatch&& eventHandler, const string& eventP
     customForm.setRuntimeModule(AStoIUnknown(ScriptRuntimeModule(eventHandler, eventPrefix), IID_IRuntimeModule));
     IForm&& form = customForm.unk;
     form.prepareForm();
+    // 8.5-адаптация: patchMyFormVtable (копия vtable окна формы + перехват mdiType/localFrame)
+    // ЛОМАЕТ окна на 8.5 — детерминированный AV в frame.dll (обход дерева окон, 0x8F5A9C).
+    // Причина уточняется; на 8.5 копия vtable не создаётся (окна форм штатные).
+#if ver < 8.5
     patchMyFormVtable(customForm.unk);
+#endif
     &&result.pValue = customForm.unk;
     dbgLog("loadScriptForm: форма создана");
     return true;
