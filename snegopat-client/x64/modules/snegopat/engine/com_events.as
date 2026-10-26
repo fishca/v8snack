@@ -200,6 +200,8 @@ void transmitCommandTrap(ICommandReceiver& cmdRecv, const CommandRef&& command, 
         original(cmdRecv, command.ref, deactivate);
         return;
     }
+    if (mainMenuOnCommand(command.ref))     // пункты нашего меню (engine/mainmenu.as) не уходят в платформу
+        return;
     if (oneDesigner._develop.cmdTrace)
         Message("Команда: группа " + string(command.ref.id.group) + " номер " + command.ref.id.num + " Параметр: " + command.ref.param + " obj=" + command.ref.object);
     string eventName = oneDesigner._events._getCmdEventName(command.ref.id.group, command.ref.id.num);

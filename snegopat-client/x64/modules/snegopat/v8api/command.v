@@ -54,9 +54,9 @@
     // передача команды на выполнение
     save void transmitCommand(const Command&in command, bool deactivate = true)
     // запрос обновления команды
-    void updateState(ICommandState@ state)
+    save void updateState(ICommandState@ state)
     // определяет наличие обработчика
-    bool hasHandler(const CommandID&in id)
+    save bool hasHandler(const CommandID&in id)
 
 :iface IListCmdState {8F8095EE-3DF3-4B90-BD15-C06CFF6149AC}
 :virt
