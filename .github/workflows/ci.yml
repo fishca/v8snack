@@ -55,9 +55,13 @@ jobs:
       - name: Проверка кода
         uses: actions/checkout@v4
 
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Упаковать snegopat-client
-        # tar.exe (bsdtar) есть в Windows 10+; -a выбирает формат по расширению
-        run: tar.exe -a -c -f snegopat-client.zip --exclude="*__pycache__*" --exclude="*.pyc" snegopat-client
+        run: python .github/scripts/package.py
 
       - name: Создать релиз
         run: |
