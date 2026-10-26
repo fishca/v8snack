@@ -335,7 +335,10 @@ var SettingsPage = /** @class */ (function () {
         this.enableButtons(this.isParamChanged());
     };
     SettingsPage.prototype.handlerAltEditorsНажатие = function () {
-        addins.byUniqueName('alteditors').object().setup();
+        // Аддин «alteditors» может быть не установлен — не падаем на null
+        var alt = addins.byUniqueName('alteditors');
+        if (alt)
+            alt.object().setup();
     };
     return SettingsPage;
 }());
@@ -897,7 +900,17 @@ var HelpPage = /** @class */ (function () {
         process(hs.root.childs[1], this.form.HelpTree.Rows);
     };
     HelpPage.prototype.getCurrentUrl = function () {
-        var url = this.form.Controls.HelpHtml.Document.location.href;
+        // Поле HTML-документа может быть ещё не инициализировано (справка не открыта,
+        // либо платформа не поддерживает Document у элемента) — не падаем на null/отсутствии свойства
+        var url;
+        try {
+            var doc = this.form.Controls.HelpHtml.Document;
+            url = doc && doc.location && doc.location.href;
+        } catch (e) {
+            return "";
+        }
+        if (!url)
+            return "";
         if (/^file:\/\/\/([^#]+)/i.exec(url)) {
             var file = RegExp.$1.replace(/\//g, "\\").replace(/%20/g, ' ').toLocaleLowerCase();
             if (file.indexOf(this.helpDir) == 0) {

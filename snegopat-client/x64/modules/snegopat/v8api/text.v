@@ -291,8 +291,9 @@
   #else
 	0x274 ModuleTxtExtSettingsMap
   #endif
-#elif (ver >= 8.3.24 & ver < 8.3.28)
-	// frntend.dll: setSettings обращается к карте по this+0x398, голова списка +8; одинаково в 8.3.24.1586 и 8.3.27.1859
+#elif (ver >= 8.3.24 & ver < 8.3.28) | ver >= 8.5
+	// frntend.dll: setSettings обращается к карте по this+0x398, голова списка +8;
+	// одинаково в 8.3.24.1586, 8.3.27.1859 и 8.5.1.1529 (setSettings@frntend RVA 0x72BDB0: add rcx,0x398)
 	0x3A0 ModuleTxtExtSettingsMap
 #else
 	0x3C8 ModuleTxtExtSettingsMap
