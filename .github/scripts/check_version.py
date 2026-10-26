@@ -10,6 +10,8 @@ import sys
 
 
 def main():
+    # консоль раннера может быть cp1252 — кириллица в stdout упадёт
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     tag = sys.argv[1] if len(sys.argv) > 1 else ""
     m = re.fullmatch(r"v(\d+\.\d+\.\d+)", tag, re.I)
     if not m:
