@@ -51,6 +51,20 @@ const uint MM_E_INT2 = 0x58;
 const uint MM_E_BYTE = 0x5C;
 const uint MM_E_STR = 0x38;
 const int_ptr MM_MANAGER_OFF = 0xD0;        // так же, как в 27
+#elif ver >= 8.5
+// 8.5: параметры и раскладка совпали с 8.3.27 (подтверждено live на 8.5.1.1529:
+// менеджер [ICommandService+0xD0], шаблоны пунктов, registerCommands/updateState — как в 27)
+const bool MM_SUPPORTED = true;
+const uint MM_DELAY_MS = 0;
+const int_ptr MM_REBUILD = 1;
+const uint MM_REFRESH_MS = 3000;
+const bool MM_DESCR_TEXT = true;
+const uint MM_ENTRY_SIZE = 0x68;
+const uint MM_E_INT1 = 0x58;
+const uint MM_E_INT2 = 0x5C;
+const uint MM_E_BYTE = 0x60;
+const uint MM_E_STR = 0x40;
+const int_ptr MM_MANAGER_OFF = 0xD0;
 #else
 const bool MM_SUPPORTED = false;
 const uint MM_DELAY_MS = 0;
