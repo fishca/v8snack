@@ -24,7 +24,8 @@ const string MM_CLSID_CI = "{F459D5F0-E7C0-11D4-9DCD-0050BAE2BC79}";    // Comma
 const string MM_IID_CI = "{7DF15090-7A63-11D4-84A1-008048DA06DF}";
 const uint MM_POPUP_NUM = 1;        // popup «Снегопат»
 const uint MM_SETTINGS_NUM = 2;     // «Настройки Снегопата»
-const uint64 MM_WEIGHT_POPUP = 0x4030333333333333;    // 16.2: после «Конфигурация» (16), до «Отладка» (16.5)
+const uint MM_SERVICE_BAND_NUM = 52;   // панель меню «Сервис» (команда {B78F2E80}/52, найдено перебором главного меню)
+const uint64 MM_WEIGHT_POPUP = 0x4059000000000000;    // 100.0: в конец меню «Сервис»
 const uint64 MM_WEIGHT_ITEM = 0x3ff0000000000000;     // 1.0
 
 #if (ver >= 8.3.27 & ver < 8.3.28)
@@ -386,7 +387,7 @@ bool mmBuild() {
     mem::memcpy(mainItems, mmItem(tmplPopup, MM_GROUP, MM_POPUP_NUM, MM_WEIGHT_POPUP), MM_ITEM_SIZE);
     int_ptr popItems = mmAlloc(MM_ITEM_SIZE);
     mem::memcpy(popItems, mmItem(tmplLeaf, MM_GROUP, MM_SETTINGS_NUM, MM_WEIGHT_ITEM), MM_ITEM_SIZE);
-    mmCall(mem::int_ptr[sv + MM_SLOT_ADDBAND * 8], src, mmNewCid(MM_FRAME, 1), mmVector(mainItems, 1), 0);
+    mmCall(mem::int_ptr[sv + MM_SLOT_ADDBAND * 8], src, mmNewCid(MM_FRAME, MM_SERVICE_BAND_NUM), mmVector(mainItems, 1), 0);
     mmCall(mem::int_ptr[sv + MM_SLOT_ADDBAND * 8], src, mmNewCid(MM_GROUP, MM_POPUP_NUM), mmVector(popItems, 1), 0);
     mmCall(mem::int_ptr[sv + MM_SLOT_FINISH * 8], src);
     // 3. обработка команд: состояние и выполнение
