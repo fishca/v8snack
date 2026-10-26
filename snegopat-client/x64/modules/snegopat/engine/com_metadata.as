@@ -823,9 +823,9 @@ int_ptr variantPtr(const Variant& v) {
 #endif
 }
 
-// IInfoBase.getConfigMgr: в 8.3.27 слот возвращает общий объект, нужный IConfigMngr получаем явным QueryInterface (неявное приведение)
+// IInfoBase.getConfigMgr: в 8.3.27 и 8.5.x слот возвращает общий объект, нужный IConfigMngr получаем явным QueryInterface (неявное приведение)
 IConfigMngr&& getConfigMgrOf(IInfoBase&& ib) {
-#if (ver >= 8.3.27 & ver < 8.3.28)
+#if (ver >= 8.3.27 & ver < 8.3.28) | ver >= 8.5
     IUnknown&& u = ib._getConfigMgr();
     IConfigMngr&& m = u;
     return m;
@@ -863,6 +863,12 @@ IMDContainer&& getIBMDCont() {
     IMDContainer&& mdcont = mng.getMDCont();
     if (dbgOn())
         dbgLog("getIBMDCont: IMDContainer " + (mdcont is null ? "NULL" : "ok"));
+    // 8.5-адаптация (ВРЕМЕННО): дамп vtable контейнера для выравнивания слотов IMDContainer/IMDObject
+    if (diagTraceOn("vt")) {
+        dbgDumpVT(mdcont !is null ? mdcont.self : 0, 3);
+        if (mdcont !is null)
+            dumpVtable(&&mdcont, "IMDContainer");
+    }
     if (!checkInterface(&&mdcont))
         return null;
     return mdcont;

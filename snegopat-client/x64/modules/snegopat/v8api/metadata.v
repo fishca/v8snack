@@ -140,8 +140,9 @@
 :iface IMDContainer {12BFDDD2-36CC-11D4-940F-008048DA11F9}
 	:base IMDObject
 	:virt
-	  #if (ver >= 8.3.24 & ver < 8.3.28)
-	    51
+	  #if (ver >= 8.3.24 & ver < 8.3.28) | ver >= 8.5
+	      // 8.5.1: слот 51 подтверждён выравниванием vtable (vtalign, 2026-10-26)
+	      51
 	  #elif ver < 8.3.6
 		+2
 	  #elif ver <8.3.7.1759
@@ -158,8 +159,9 @@
 	    49
 	  #endif
 		IMDObject@+ objById(const Guid& objId)
-	  #if (ver >= 8.3.24 & ver < 8.3.28)
-	    56
+	  #if (ver >= 8.3.24 & ver < 8.3.28) | ver >= 8.5
+	      // 8.5.1: слот 56 подтверждён выравниванием vtable (vtalign, 2026-10-26)
+	      56
 	  #elif ver < 8.3.18.1289
 	    +4
 	  #else
@@ -231,9 +233,10 @@
 	    83
 	  #elif ver < 8.3.17
 	    84
-	  #elif (ver >= 8.3.24 & ver < 8.3.28)
-	    // 8.3.27: перед getMDCont встал ещё один метод (сеттер кэша контейнера), слот 86; найдено выравниванием vtable (tools/vtalign.py, дампы dumpVtable)
-	    86
+	  #elif (ver >= 8.3.24 & ver < 8.3.28) | ver >= 8.5
+	      // 8.3.27: перед getMDCont встал ещё один метод (сеттер кэша контейнера), слот 86; найдено выравниванием vtable (tools/vtalign.py, дампы dumpVtable)
+	      // 8.5.1: слот 86 подтверждён выравниванием vtable по дампам (vtalign, 2026-10-26)
+	      86
 	  #else
 	    85
 	  #endif
@@ -304,19 +307,20 @@
 	    // После IUnknown (3) смещение 68. Старое 65 вызывало native slot 68 -> 0x22360.
 	    // Поле подтверждено присваиванием IConfigMngr, полученного по IID DE9DE45C-5440-403A-840F-48AD6D581E35.
 	    68
-	  #elif (ver >= 8.3.27 & ver < 8.3.28)
-	    // 8.3.27: getConfigMgr в слоте 78 (в 8.3.17.1549 — 59); слот возвращает общий объект, настоящий IConfigMngr берётся через QueryInterface (обёртка ниже)
-	    // Найдено оракулом трассировки Core.As (tools/slotprobe.py): слот 79, подобранный по полям-геттерам, возвращал не IConfigMngr
-	    75
+	  #elif (ver >= 8.3.27 & ver < 8.3.28) | ver >= 8.5
+	      // 8.3.27: getConfigMgr в слоте 78 (в 8.3.17.1549 — 59); слот возвращает общий объект, настоящий IConfigMngr берётся через QueryInterface (обёртка ниже)
+	      // Найдено оракулом трассировки Core.As (tools/slotprobe.py): слот 79, подобранный по полям-геттерам, возвращал не IConfigMngr
+	      // 8.5.1: слот 75 подтверждён выравниванием vtable по дампам (vtalign, 2026-10-26)
+	      75
 	  #else
 	    65
 	  #endif
-	  #if (ver >= 8.3.27 & ver < 8.3.28)
-		// слот возвращает общий объект: приведение к IConfigMngr (QueryInterface) делает getConfigMgrOf() в engine/com_metadata.as
-		IUnknown@+ _getConfigMgr()
-	  #else
-		IConfigMngr@+ getConfigMgr()
-	  #endif
+	  #if (ver >= 8.3.27 & ver < 8.3.28) | ver >= 8.5
+	  	// слот возвращает общий объект: приведение к IConfigMngr (QueryInterface) делает getConfigMgrOf() в engine/com_metadata.as
+	  	IUnknown@+ _getConfigMgr()
+	    #else
+	  	IConfigMngr@+ getConfigMgr()
+	    #endif
 
 :iface IMDEditHelper {888744F9-B616-11D4-9436-004095E12FC7}
 	:virt
