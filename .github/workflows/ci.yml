@@ -67,11 +67,12 @@ jobs:
           python-version: "3.12"
 
       - name: Упаковать snegopat-client
-        run: python .github/scripts/package.py
+        run: |
+          $ver = "${{ github.ref_name }}".TrimStart('v')
+          python .github/scripts/package.py snegopat-client "snegopat-client-$ver-x64.zip"
 
       - name: Создать релиз
         run: |
           $tag = "${{ github.ref_name }}"
           $ver = $tag.TrimStart('v')
-          gh release create $tag "snegopat-client.zip#snegopat-client-$ver-x64.zip" `
-            --title "v8snack $ver" --generate-notes
+          gh release create $tag "snegopat-client-$ver-x64.zip" --title "v8snack $ver" --generate-notes
