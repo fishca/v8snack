@@ -19,6 +19,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
+# Токен по умолчанию: чтение; создание релиза требует contents: write
+permissions:
+  contents: read
+
 jobs:
   test:
     name: Тесты (Windows)
@@ -49,6 +53,8 @@ jobs:
     # только тег v* на push; тесты обязаны пройти (needs)
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
     runs-on: windows-latest
+    permissions:
+      contents: write   # создание релиза и заливка ассета
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
