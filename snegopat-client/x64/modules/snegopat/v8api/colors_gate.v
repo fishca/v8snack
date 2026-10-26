@@ -1,7 +1,13 @@
 // Native boundary for editor worker callbacks. x86 retains its existing path.
 #if x86 = 0
 :global
+#if ver >= 8.5
+// 8.5: нативная часть резолвит аллокатор по имени модуля; в 8.5 это nuke85.dll,
+// а в snegopat_colors.dll имя зашито как nuke83.dll. Для 8.5 — копия с исправленной строкой.
+:dlls snegopat_colors85.dll
+#else
 :dlls snegopat_colors.dll
+#endif
     int_ptr installColorsGate(ITextExtColors& object, uint slot, int_ptr script, uint owner, uint kind)|colorsGateInstall
     int_ptr installBackColorsGate(ITextExtBackColors& object, uint slot, int_ptr script, uint owner, uint kind)|colorsGateInstall
 #if ver >= 8.3.27 & ver < 8.3.28

@@ -156,7 +156,7 @@ bool initGroupingAndColoring(bool forceForProbe = false) {
   #if x86 = 0
     if (colorGateState == trapNotActive) {
         bool defaultNativeColors = false;
-      #if (ver >= 8.3.17 & ver < 8.3.18) | (ver >= 8.3.27 & ver < 8.3.28)
+      #if (ver >= 8.3.17 & ver < 8.3.18) | (ver >= 8.3.27 & ver < 8.3.28) | ver >= 8.5
         defaultNativeColors = true;
       #endif
         if (!forceForProbe && !diagHook("colors", defaultNativeColors))
