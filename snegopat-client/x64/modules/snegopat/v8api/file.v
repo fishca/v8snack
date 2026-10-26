@@ -102,8 +102,10 @@
 :dlls
 #if ver < 8.3
     core82.dll
-#else
+#elif ver < 8.5
     core83.dll
+#else
+    core85.dll
 #endif
 	uint64 copy_file(IFile& dst, IFile& src, uint64 size)|?copy_file@core@@YA_KPAVIFile@1@0_K@Z|?copy_file@core@@YA_KPEAVIFile@1@0_K@Z
 :meths

@@ -11,8 +11,10 @@
 :dlls
 #if ver < 8.3
 	core82.dll
-#else
+#elif ver < 8.5
 	core83.dll
+#else
+	core85.dll
 #endif
 	void ctor()|??0CompositeID@core@@QAE@XZ|??0CompositeID@core@@QEAA@XZ
 	void ctor(const Guid&)|??0CompositeID@core@@QAE@ABU_GUID@@@Z|??0CompositeID@core@@QEAA@AEBU_GUID@@@Z

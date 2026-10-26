@@ -50,8 +50,10 @@
 :dlls
 #if ver < 8.3
 	core82.dll
-#else
+#elif ver < 8.5
 	core83.dll
+#else
+	core85.dll
 #endif
 	void ctor(int y=0, int m=0, int d=0)|??0Date@core@@QAE@HHH@Z|??0Date@core@@QEAA@HHH@Z
 	void ctor(int, int, int, int, int, int)|??0Date@core@@QAE@HHHHHH@Z|??0Date@core@@QEAA@HHHHHH@Z
@@ -79,8 +81,10 @@
 :dlls
 #if ver < 8.3
 	core82.dll
-#else
+#elif ver < 8.5
 	core83.dll
+#else
+	core85.dll
 #endif
   #if ver >= 8.3.11
 	void dtor()|??1Numeric@core@@QAE@XZ|??1Numeric@core@@QEAA@XZ
@@ -142,8 +146,10 @@
 :dlls
 #if ver < 8.3
 	core82.dll
-#else
+#elif ver < 8.5
 	core83.dll
+#else
+	core85.dll
 #endif
 	void ctor(const Value&in)|??0Value@core@@QAE@ABV01@@Z|??0Value@core@@QEAA@AEBV01@@Z
 	void ctor(const Date&in)|??0Value@core@@QAE@ABVDate@1@@Z|??0Value@core@@QEAA@AEBVDate@1@@Z
@@ -221,8 +227,10 @@
 :dlls
 #if ver < 8.3
 	core82.dll
-#else
+#elif ver < 8.5
 	core83.dll
+#else
+	core85.dll
 #endif
 	// AngelScript требует для классов наличия конструктора без параметров, поэтому нарисуем ему такой
 	void ctor()|??0Type@core@@QAE@PAVIType@1@@Z|??0Type@core@@QEAA@PEAVIType@1@@Z
@@ -245,8 +253,10 @@
 :dlls
 #if ver < 8.3
 	core82.dll
-#else
+#elif ver < 8.5
 	core83.dll
+#else
+	core85.dll
 #endif
 #if ver < 8.3.11
 	void valueFromString(const v8string&in, Value&)|?fromString@GenericValue@core@@SAXABV?$basic_string@_WV?$char_traits@_W@stlp_std@@V?$allocator@_W@2@@stlp_std@@AAV12@@Z

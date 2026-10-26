@@ -415,7 +415,11 @@
 #if ver >= 8.3.12
 :service Window {00000000-0000-0000-0000-000000000000}
 :dlls
+	#if ver < 8.5
 	wbase83.dll
+#else
+	wbase85.dll
+#endif
 
 	void GetClientRect(tagRECT&)|?GetClientRect@BaseWindow@wbase@@QBEXPAUtagRECT@@@Z|?GetClientRect@BaseWindow@wbase@@QEBAXPEAUtagRECT@@@Z
 	void GetWindowRect(tagRECT&)|?GetWindowRect@BaseWindow@wbase@@QBEXPAUtagRECT@@@Z|?GetWindowRect@BaseWindow@wbase@@QEBAXPEAUtagRECT@@@Z
@@ -427,10 +431,20 @@
 	void clientToWindow(Rect&)|?clientToWindow@Window@wbase@@IAEXAAURect@core@@@Z|?clientToWindow@Window@wbase@@IEAAXAEAURect@core@@@Z
 	void windowToClient(Point&)|?windowToClient@Window@wbase@@IAEXAAUPoint@core@@@Z|?windowToClient@Window@wbase@@IEAAXAEAUPoint@core@@@Z
 	void windowToClient(Rect&)|?windowToClient@Window@wbase@@IAEXAAURect@core@@@Z|?windowToClient@Window@wbase@@IEAAXAEAURect@core@@@Z
+	#if ver < 8.5
 	int_ptr calcShadowRect(Rect&)|?calcShadowRect@BaseWindow@wbase@@QAE?AURect@core@@XZ|?calcShadowRect@BaseWindow@wbase@@QEAA?AURect@core@@XZ
+#else
+	// 8.5: calcShadowRect стал виртуальным (UEAA) и возвращает void, заполняя Rect& — проверено по экспортам wbase85.dll
+	void calcShadowRect(Rect&)|?calcShadowRect@BaseWindow@wbase@@UEAAXAEAURect@core@@@Z
+#endif
 	int_ptr calcInBorderRect(Rect&, Rect&)|?calcInBorderRect@Window@wbase@@IAE?AURect@core@@ABU34@@Z|?calcInBorderRect@Window@wbase@@IEAA?AURect@core@@AEBU34@@Z
 	void getWindowRects(Rect& windowRect,Rect& withoutScrollers,Rect& clientArea)|?getWindowRects@BaseWindow@wbase@@QBEXPAURect@core@@00@Z|?getWindowRects@BaseWindow@wbase@@QEBAXPEAURect@core@@00@Z
+	#if ver < 8.5
 	int_ptr calcWindowTopRightPos(Rect& out, IWindow&, IWindow&,int,int)|?calcWindowTopRightPos@@YA?AURect@core@@PAVIWindow@wbase@@0HH@Z|?calcWindowTopRightPos@@YA?AURect@core@@PEAVIWindow@wbase@@0HH@Z
+#else
+	// 8.5: свободная функция переехала в namespace wbase
+	int_ptr calcWindowTopRightPos(Rect& out, IWindow&, IWindow&,int,int)|?calcWindowTopRightPos@wbase@@YA?AURect@core@@PEAVIWindow@1@0HH@Z
+#endif
   #if x64 = 1
 	IWindow& getParent()|?getParent@BaseWindow@wbase@@UEAAPEAVIWindow@2@XZ
 	IWindow& getFirstChild()|?getFirstChild@BaseWindow@wbase@@UEAAPEAVIWindow@2@XZ
@@ -441,7 +455,11 @@
 
 :global
 :dlls
+	#if ver < 8.5
 	wbase83.dll
+#else
+	wbase85.dll
+#endif
 	IWindow& get_focus(void)|?get_focus@wbase@@YAPAVIWindow@1@XZ|?get_focus@wbase@@YAPEAVIWindow@1@XZ
 
   #if x86 = 1

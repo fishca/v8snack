@@ -25,10 +25,12 @@
 	  #endif
 	:dlls
 	  #if ver < 8.3
-		core82.dll
-	  #else
-		core83.dll
-	  #endif
+	  	core82.dll
+	    #elif ver < 8.5
+	  	core83.dll
+	    #else
+	  	core85.dll
+	    #endif
 		void ctor()|??0V8Picture@core@@QAE@XZ|??0V8Picture@core@@QEAA@XZ
 		bool compareAttribs(const V8Picture&in)const|?compareAttribs@V8Picture@core@@QBE_NABV12@@Z|?compareAttribs@V8Picture@core@@QEBA_NAEBV12@@Z
 		bool opEqual(const V8Picture&in)const|??8V8Picture@core@@QBE_NABV01@@Z|??8V8Picture@core@@QEBA_NAEBV01@@Z

@@ -197,8 +197,10 @@
 :dlls
 #if ver < 8.3
     core82.dll
-#else
+#elif ver < 8.5
     core83.dll
+#else
+    core85.dll
 #endif
 #if ver < 8.3.11
 	bool is_alnum(wchar_t)|?is_alnum@core@@YA_N_W@Z

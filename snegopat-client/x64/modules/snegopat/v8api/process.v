@@ -1,7 +1,8 @@
 ﻿// (c) проект "Snegopat.Module", Александр Орефков orefkov@gmail.com
 // Описание интерфейсов 1С.
 
-#if ver < 8.2.19 | (ver > 8.3.0 & ver < 8.3.4) | ver >= 8.3.28
+// ЭКСПЕРИМЕНТ 8.5.1 (живая копия): guard снят.
+#if ver < 8.2.19 | (ver > 8.3.0 & ver < 8.3.4)
 #err Unsupported version of 1C - Эта версия 1С не поддерживается!
 #endif
 
@@ -34,8 +35,10 @@
 :dlls
 #if ver < 8.3
     core82.dll
-#else
+#elif ver < 8.5
     core83.dll
+#else
+    core85.dll
 #endif
     SCOM_Process@ currentProcess()|?current_process@core@@YAPAVSCOM_Process@1@XZ|?current_process@core@@YAPEAVSCOM_Process@1@XZ
 	void val2var(const Value&, Variant&)|?value_to_variant_val@core@@YAXABVGenericValue@1@AAUtagVARIANT@@@Z|?value_to_variant_val@core@@YAXAEBVGenericValue@1@AEAUtagVARIANT@@@Z
@@ -70,9 +73,14 @@
 	ucrtbase.dll
 	int_ptr malloc(size_t)|malloc
 	void free(int_ptr)|free
-#else
+#elif ver < 8.5
 	// 8.3.20+: платформа выделяет и освобождает память своим аллокатором (nuke83.dll); освобождать её CRT-free нельзя — повреждение кучи (0xC0000374)
 	nuke83.dll
+	int_ptr malloc(size_t)|nuke_malloc
+	void free(int_ptr)|nuke_free
+#else
+	// 8.5+: ядро переименовано в nuke85.dll (экспорты nuke_malloc/nuke_free сохранены)
+	nuke85.dll
 	int_ptr malloc(size_t)|nuke_malloc
 	void free(int_ptr)|nuke_free
 #endif
