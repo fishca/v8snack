@@ -39,6 +39,11 @@ python -m venv .venv-tests
 - Модуль `snegopat` скомпилирован (check), только если в `engine/*.as` нет ссылок на
   отсутствующие для данной версии символы: это поймало баг `colorsLineBgCount`
   (8.3.25 и старше) — см. `ANALYSIS.md`.
+- **Файлы модуля обязаны быть в LF.** При CRLF core_as.dll регистрирует типы дважды
+  (ошибка `RegisterTypedef 'COLORREF'/'uint32'`, `main/api/winapi.v`), и валидная
+  сборка не компилируется. Гарантию даёт `.gitattributes` (`* text=auto eol=lf`)
+  и в CI checkout с `core.autocrlf: false`. Это находил сам тест: падал именно
+  compile-прогон на Windows-раннере (CRLF-чек-аут), локально (LF) проходил.
 - 8.5.1 и 8.3.28+ не поддерживаются: `v8api/process.v` отклоняет их guard'ом.
 - Семантика `:virt` в парсере (`tests/vparse.py`): `+N` — пропуск слотов,
   голое число — абсолютный слот следующего метода, перегрузки (одно имя, разные

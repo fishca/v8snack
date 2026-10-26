@@ -64,7 +64,8 @@ class TestJSyntax(unittest.TestCase):
             self.skipTest("node не найден")
         bad = []
         for js in js_files(ADDINS):
-            first = open(js, "rb").read(64).decode("utf-8", "replace")
+            with open(js, "rb") as f:
+                first = f.read(64).decode("utf-8", "replace")
             if "$engine" in first:      # JScript-директива хоста — не JS, пропускаем
                 continue
             r = subprocess.run([self.node, "--check", js], capture_output=True, text=True)

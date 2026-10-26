@@ -24,7 +24,8 @@ def pe_machine(path):
 
 
 def read_text(path, encs=("utf-8-sig", "cp1251")):
-    raw = open(path, "rb").read()
+    with open(path, "rb") as f:
+        raw = f.read()
     for enc in encs:
         try:
             return raw.decode(enc).replace("\r\n", "\n")
