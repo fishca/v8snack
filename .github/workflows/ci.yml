@@ -25,11 +25,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Проверка кода
+        # LF гарантирует .gitattributes (* text=auto eol=lf) — перекрывает autocrlf
         uses: actions/checkout@v4
-        with:
-          # модуль собирается только из LF-файлов (см. .gitattributes);
-          # иначе на Windows checkout даёт CRLF и compile-тесты падают
-          core.autocrlf: false
 
       - name: Python
         uses: actions/setup-python@v5
