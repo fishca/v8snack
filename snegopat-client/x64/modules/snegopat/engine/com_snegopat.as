@@ -9,10 +9,17 @@
 
 class Snegopat {
   #if x86 = 0
+  #if ver >= 8.3.27 & ver < 8.3.28
     string coloringBackgroundCounts() {
         return "{\"has\":" + colorsGateCount(1, 2) + ",\"get\":" + colorsGateCount(2, 2) +
             ",\"line\":" + colorsLineBgCount() + ",\"script\":" + (colorsGateCount(1, 1) + colorsGateCount(2, 1)) + "}";
     }
+  #else
+    string coloringBackgroundCounts() {
+        return "{\"has\":" + colorsGateCount(1, 2) + ",\"get\":" + colorsGateCount(2, 2) +
+            ",\"line\":-1,\"script\":" + (colorsGateCount(1, 1) + colorsGateCount(2, 1)) + "}";
+    }
+  #endif
     string coloringGateInfo() {
         string result = "[";
         for (uint kind = 0; kind < 3; kind++) {

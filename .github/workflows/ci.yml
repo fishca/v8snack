@@ -1,0 +1,66 @@
+# CI: тесты + релиз.
+#
+# Тесты выполняются на Windows (compile-тесты гоняют нативный coreas_runner_c.exe
+# из сборки; addins проверяются node --check).
+#
+# Релиз выпускается только после зелёных тестов и только для тега вида v<версия>
+# (например v1.6.40): тег сверяется с полем ours в snegopat-client/x64/version.json,
+# упаковывается snegopat-client, ассет заливается в GitHub Release.
+#
+# Триггеры: push в main / PR в main / тег v* / ручной запуск (workflow_dispatch).
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Тесты (Windows)
+    runs-on: windows-latest
+    steps:
+      - name: Проверка кода
+        uses: actions/checkout@v4
+
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Зависимости dump-tools
+        run: python -m pip install capstone pefile numpy
+
+      - name: Запуск тестов (включая компиляцию модуля под версии платформы)
+        run: python -m unittest discover -s tests -v
+
+      - name: Тег соответствует version.json
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: python .github/scripts/check_version.py ${{ github.ref_name }}
+
+  release:
+    name: Релиз
+    needs: test
+    # только тег v* на push; тесты обязаны пройти (needs)
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: windows-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Проверка кода
+        uses: actions/checkout@v4
+
+      - name: Упаковать snegopat-client
+        # tar.exe (bsdtar) есть в Windows 10+; -a выбирает формат по расширению
+        run: tar.exe -a -c -f snegopat-client.zip --exclude="*__pycache__*" --exclude="*.pyc" snegopat-client
+
+      - name: Создать релиз
+        run: |
+          $tag = "${{ github.ref_name }}"
+          $ver = $tag.TrimStart('v')
+          gh release create $tag "snegopat-client.zip#snegopat-client-$ver-x64.zip" `
+            --title "v8snack $ver" --generate-notes
