@@ -384,7 +384,9 @@ bool mmBuild() {
         return true;
     }
     int_ptr sv = mem::int_ptr[src];
-    // разделитель перед «Снегопатом»: образец — пункт с нулевой группой из панели «Сервис»
+    // разделитель перед «Снегопатом»: образец — пункт-разделитель панели «Сервис»
+    // (команда {9D0A2E40-B978-11D4-84B6-008048DA06DF}/0, повторяется между группами;
+    // пункты с нулевой группой {0}/N разделителями НЕ являются — у них служебное поле)
     int_ptr sepTmpl = 0;
     int_ptr bandSvc = mmBand(manager, mmNewCid(MM_FRAME, MM_SERVICE_BAND_NUM));
     if (bandSvc != 0) {
@@ -392,7 +394,7 @@ bool mmBuild() {
         int_ptr e0 = mem::int_ptr[bandSvc + 0x38];
         for (int_ptr p = b0; p < e0; p += 8) {
             int_ptr it = mem::int_ptr[p];
-            if (it != 0 && mem::int_ptr[it] == 0 && mem::int_ptr[it + 8] == 0) {
+            if (it != 0 && mem::int_ptr[it] == 0x11d4b9789d0a2e40 && mem::int_ptr[it + 8] == 0xdf06da488000b684) {
                 sepTmpl = it;
                 break;
             }
