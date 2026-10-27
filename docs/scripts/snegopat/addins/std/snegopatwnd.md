@@ -1,0 +1,102 @@
+## `snegopat/addins/std/snegopatwnd.js`
+
+- Язык: **JScript**, строк: **1070**, объявлений: **96**
+- Назначение: Показ окна Снегопата
+- Состав: func — 17, method — 79
+
+- `extendStatics(d, b)`
+- `__()`
+- `openWnd()`
+- `openPage(name)`
+- `Param(control)`
+- `Param.fromForm(form)`
+- `Param.toForm(form, val)`
+- `Param.validate(val)`
+- `Param.isEqual(val1, val2)`
+- `Param.needReboot()`
+- `ParamCtrl()`
+- `ParamCtrl.fromForm(form)`
+- `ParamCtrl.toForm(form, val)`
+- `ParamCtrl.isEqual(val1, val2)`
+- `ParamFlags()`
+- `ParamFlags.fromForm(form)`
+- `ParamFlags.toForm(form, v)`
+- `ParamColor()`
+- `ParamColor.validate(val)`
+- `ParamColor.isEqual(val1, val2)`
+- `SettingsPage()`
+- `SettingsPage.addExtraControls(form)` — Флажки, которых нет в sn_forms.epf: добавляются на страницу настроек при подключении (правка epf возможна только в редакторе форм). Действие «при изменении» — то же, что у соседнего флажка.
+- `SettingsPage.connect(form)`
+- `SettingsPage.enableButtons(e)`
+- `SettingsPage.readParams()`
+- `SettingsPage.isParamChanged()`
+- `SettingsPage.applyParams()`
+- `SettingsPage.enter()`
+- `SettingsPage.exit()`
+- `SettingsPage.handlerSettingsCmdBarSelectScripts()`
+- `SettingsPage.handlerSettingsCmdBarSaveSettings()`
+- `SettingsPage.handlerSettingsCmdBarRestoreSettings()`
+- `SettingsPage.handlerфРусскийПриИзменении()`
+- `SettingsPage.handlerфАнглийскийПриИзменении()`
+- `SettingsPage.handlerПользовательскиеГруппировкиПриИзменении()`
+- `SettingsPage.handlerCheckChanges()`
+- `SettingsPage.handlerAltEditorsНажатие()`
+- `HotkeysPage()`
+- `HotkeysPage.connect(form)`
+- `HotkeysPage.enter()`
+- `HotkeysPage.exit()`
+- `HotkeysPage.fillTable()`
+- `HotkeysPage.handlerHKTableКомандаStartChoice(Элемент, СтандартнаяОбработка)`
+- `HotkeysPage.handlerHkCmdBarApply()`
+- `HotkeysPage.handlerHkCmdBarCancel()`
+- `HotkeysPage.handlerHKTableСочетаниеКлавишStartChoice(Control, StandardProcessing)`
+- `HotkeysPage.handlerHKTableOnActivateRow(Control)`
+- `HotkeysPage.handlerHKTableOnRowOutput(Control, RowAppearance, RowData)`
+- `HotkeysPage.getCommandDescr(row)`
+- `UpdatePage()`
+- `UpdatePage.connect(form)`
+- `UpdatePage.updateVersionInfo()`
+- `UpdatePage.enter()`
+- `UpdatePage.exit()`
+- `UpdatePage.readSettings()`
+- `UpdatePage.storeSettings()`
+- `UpdatePage.fillRepoList()`
+- `UpdatePage.startNtlm()`
+- `UpdatePage.killNtlm()`
+- `UpdatePage.runFossilLocal(command, visible, needConnect)`
+- `UpdatePage.runFossilRemote(command, handler)`
+- `UpdatePage.readLocalTimeline()`
+- `a2(p)`
+- `UpdatePage.readRemoteTimeline(after)`
+- `UpdatePage.fillRepoRow(row, res)`
+- `UpdatePage.handlerCmdBarUpdatebtnRefreshRepo()`
+- `UpdatePage.handlerCmdBarUpdatebtnDownloadSnegopat()`
+- `UpdatePage.handlerCmdBarUpdateBugsForum()`
+- `UpdatePage.handlerbtnFillRepoНажатие()`
+- `UpdatePage.handlerntlmDetectНажатие()`
+- `UpdatePage.handlerbtnProxyReadНажатие()`
+- `UpdatePage.handlerCmdBarUpdatebtnSaveSettings()`
+- `UpdatePage.handlervtRepoListПриВыводеСтроки(Control, RowAppearance, RowData)`
+- `HelpPage()`
+- `HelpPage.connect(form)`
+- `HelpPage.enter()`
+- `HelpPage.exit()`
+- `HelpPage.fillHelpTree()`
+- `process(folder, rows)`
+- `HelpPage.getCurrentUrl()`
+- `HelpPage.activate(topic)`
+- `HelpPage.activateByPath(path)`
+- `HelpPage.handlerHelpTreeПриАктивизацииСтроки()`
+- `HelpPage.handlerHelpTreeПриВыводеСтроки(Control, RowAppearance, RowData)`
+- `HelpPage.handlerOnBreadCrumbsClick(button)`
+- `HelpPage.handlerHelpSearchOpening(Control, StandardProcessing)`
+- `HelpPage.handlerHelpHtmlonhelp(Control, pEvtObj)`
+- `HelpPage.handlerHelpHtmlДокументСформирован(control)`
+- `AboutPage()`
+- `AboutPage.connect(form)`
+- `AboutPage.enter()`
+- `AboutPage.exit()`
+- `AboutPage.handlerAboutHtmlDocumentComplete()`
+- `AboutPage.handlerAboutHtmlonhelp(Control, pEvtObj)`
+- `restoreWindowState()` — Функция вызывается основным загрузчиком после загрузки стартовых аддинов
+- `getLocation(htmlDoc)`

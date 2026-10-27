@@ -1,0 +1,50 @@
+## `snegopat/addins/wndpanel.js`
+
+- Язык: **JScript**, строк: **1065**, объявлений: **44**
+- Назначение: Панель окон
+- Состав: func — 44
+
+- `insertRowSafe(rows, idx)` — Вставка строки в таблицу значений: индекс за пределами или сбой Insert (8.3.24) дают пустой результат — тогда добавляем в конец
+- `getFullMDName(mdObj, mdProp)`
+- `macrosПоказать()`
+- `macrosПоказатьСкрыть()`
+- `macrosПереключитьВидимостьОкнаСвойств()`
+- `getDefaultMacros()` — дважды щелкает мышью по названию скрипта в окне Снегопата. */ Возвращает название макроса по умолчанию - вызывается, когда пользователь
+- `updateWndList()`
+- `onTitlesChanged(param)`
+- `onIdle()`
+- `withSelected(func)`
+- `WndListВыбор(control, selectedRow, column, standardProcessing)`
+- `WndListПриАктивизацииСтроки(control)`
+- `extractFileName(path, withExtension)`
+- `WndListПриВыводеСтроки(control, rowAppearanceRef, rowDataRef)`
+- `FilterРегулирование(control, direction, standardProcessing)`
+- `find1LevelMdObj(mdObj)`
+- `CmdsActivate(button)`
+- `closeSelected()`
+- `closewindows()`
+- `CmdsClose(button)`
+- `CmdsOpenModule(button)`
+- `CmdsOpenManagerModule(button)`
+- `CmdsOpenForm(button)`
+- `CmdsSave(button)`
+- `CmdsFindInTree(button)`
+- `CmdsMinimizeAll(button)`
+- `CmdsPrint(button)`
+- `CmdsSaveSession(button)`
+- `CmdsRestoreSession(button)`
+- `CmdsConfig(button)`
+- `saveSettings()`
+- `CmdsConfigSaveClose(button)`
+- `CmdsConfigSave(button)`
+- `InvisiblePanelSelectAndHide(button)`
+- `WndListПередНачаломДобавления(control, cancel, isCopy)`
+- `WndListПередУдалением(control, cancel)`
+- `CmdsTreeView(Button)`
+- `CmdshistorySort(Button)`
+- `loadSessionManager()`
+- `macrosОткрытьОкно()` — Совместимость: макрос раньше был остатком копипаста из другого аддина и просто открывал окно
+- `addMdObjects(result, i1, mdClass)`
+- `collectMetadataList()`
+- `getMetadataList()`
+- `openAfterStart(action)` — Открытие панели на старте откладываем: в момент загрузки скриптов платформа (8.3.27) ещё не готова к созданию форм — падение в nuke83.dll и каскад ошибок движка. Ждём 3 с и выхода из модального режима.

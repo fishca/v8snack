@@ -1,0 +1,83 @@
+## `snegopat/addins/Libs/jshint.js`
+
+- Язык: **JScript**, строк: **4624**, объявлений: **77**
+- Назначение: ! JSHint, by JSHint Community. Licensed under the same slightly modified MIT license that JSLint is.
+- Состав: func — 75, method — 2
+
+- `F()`
+- `is_own(object, name)`
+- `checkOption(name, t)`
+- `isString(obj)`
+- `Array.forEach(fn, scope)`
+- `Array.indexOf(searchElement /*, fromIndex */)`
+- `isAlpha(str)` — Non standard methods
+- `isDigit(str)`
+- `supplant(str, data)`
+- `combine(t, o)`
+- `updatePredefined()`
+- `assume()`
+- `quit(message, line, chr)` — Produce an error warning.
+- `isundef(scope, m, t, a)`
+- `warning(m, t, a, b, c, d)`
+- `warningAt(m, l, ch, a, b, c, d)`
+- `error(m, t, a, b, c, d)`
+- `errorAt(m, l, ch, a, b, c, d)`
+- `nextLine()` — Private lex methods
+- `it(type, value)` — Produce a token object.  The token inherits from a syntax symbol.
+- `checkName(name)`
+- `match(x)`
+- `string(x)`
+- `esc(n)`
+- `addlabel(t, type, token)`
+- `doOption()`
+- `peek(p)` — We need a peek function. If it has an argument, it peeks that much farther ahead. It is used to distinguish for ( var i in ... from for ( var i = ...
+- `advance(id, t)` — Produce the next token. It looks for programming errors.
+- `expression(rbp, initial)` — They are elements of the parsing method called Top Down Operator Precedence.
+- `adjacent(left, right)` — Functions for conformance of style.
+- `nobreak(left, right)`
+- `nospace(left, right)`
+- `nonadjacent(left, right)`
+- `nobreaknonadjacent(left, right)`
+- `indentation(bias)`
+- `nolinebreak(t)`
+- `comma()`
+- `symbol(s, p)` — Functional constructors for making the symbols that will be inherited by tokens.
+- `delim(s)`
+- `stmt(s, f)`
+- `blockstmt(s, f)`
+- `reserveName(x)`
+- `prefix(s, f)`
+- `type(s, f)`
+- `reserve(s, f)`
+- `reservevar(s, v)`
+- `infix(s, f, p, w)`
+- `relation(s, f)`
+- `isPoorRelation(node)`
+- `assignop(s)`
+- `bitwise(s, f, p)`
+- `bitwiseassignop(s)`
+- `suffix(s)`
+- `optionalidentifier(fnparam)` — fnparam means that this identifier is being defined as a function argument (see identifier())
+- `identifier(fnparam)` — fnparam means that this identifier is being defined as a function argument
+- `reachable(s)`
+- `statement(noindent)`
+- `statements(startLine)`
+- `directives()` — / warns, if it is used recognizes a simple form of asi, but always read all directives
+- `block(ordinary, stmt, isfunc)` — / isfunc   - true if block is a function body stmt     - true if block can be a single statement (e.g. in if/for/while). ordinary - true for everything but function bodies and try blocks. braces. Parses a single block. A block is a sequence of statements wrapped in
+- `countMember(m)`
+- `note_implied(token)`
+- `property_name()`
+- `functionparams()`
+- `doFunction(i, statement)`
+- `saveProperty(name, token)`
+- `saveSetter(name, token)`
+- `saveGetter(name)`
+- `useESNextSyntax()` — This Function is called when esnext option is set to true it adds the `const` statement to JSHINT
+- `jsonValue()` — Parse JSON
+- `jsonObject()`
+- `jsonArray()`
+- `itself(s, o, g)` — The actual JSHINT function itself.
+- `markDefined(name, context)`
+- `clearImplied(name, line)`
+- `warnUnused(name, token)`
+- `checkUnused(func, key)`

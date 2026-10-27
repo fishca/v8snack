@@ -1,0 +1,49 @@
+## `snegopat/addins/Libs/jsUnitCore.js`
+
+- Язык: **JScript**, строк: **1063**, объявлений: **44**
+- Состав: func — 38, method — 6
+
+- `SetErrorHandler(errorHandler)`
+- `ResetErrorHandler()`
+- `SnegopatThrowException(exception)`
+- `assert()` — / @throws JsUnitInvalidAssertionArgument if the given value is not a boolean or if an incorrect number of arguments is passed @throws JsUnit.Failure if the given value is not true @value value that is expected to be true @param comment optional, displayed in the case of failure Checks that the given boolean value is true. *
+- `assertTrue()` — / @see #assert Synonym for assertTrue *
+- `assertFalse()` — / @throws JsUnitInvalidAssertionArgument if the given value is not a boolean or if an incorrect number of arguments is passed @throws JsUnit.Failure if value is not false @value value that is expected to be false @param comment optional, displayed in the case of failure Checks that a boolean value is false. *
+- `assertEquals()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments is passed @throws JsUnit.Failure if the values are not equal @param actual the actual value @param expected the expected value @param comment optional, displayed in the case of failure Checks that two values are equal (using ===) *
+- `assertNotEquals()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments is passed @throws JsUnit.Failure if the values are equal @param value2 another value @param value1 a value @param comment optional, displayed in the case of failure Checks that two values are not equal (using !==) *
+- `assertNull()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments is passed @throws JsUnit.Failure if the value is not null @param value the value @param comment optional, displayed in the case of failure Checks that a value is null *
+- `assertNotNull()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments is passed @throws JsUnit.Failure if the value is null @param value the value @param comment optional, displayed in the case of failure Checks that a value is not null *
+- `assertUndefined()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments is passed @throws JsUnit.Failure if the value is not undefined @param value the value @param comment optional, displayed in the case of failure Checks that a value is undefined *
+- `assertNotUndefined()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments is passed @throws JsUnit.Failure if the value is undefined @param value the value @param comment optional, displayed in the case of failure Checks that a value is not undefined *
+- `assertNaN()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments is passed @throws JsUnit.Failure if the value is a number @param value the value @param comment optional, displayed in the case of failure Checks that a value is NaN (Not a Number) *
+- `assertNotNaN()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments is passed @throws JsUnit.Failure if the value is not a number @param value the value @param comment optional, displayed in the case of failure Checks that a value is not NaN (i.e. is a number) *
+- `assertObjectEquals()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments is passed @throws JsUnit.Failure if the actual value does not equal the expected value @param value the actual value @param value the expected value @param comment optional, displayed in the case of failure into collections and calling assertObjectEquals for each element Checks that an object is equal to another using === for primitives and their object counterparts but also desceding *
+- `assertArrayEquals()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments is passed @throws JsUnit.Failure if the actual value does not equal the expected value @param value the actual array @param value the expected array @param comment optional, displayed in the case of failure Checks that an array is equal to another by checking that both are arrays and then comparing their elements using assertObjectEquals *
+- `assertEvaluatesToTrue()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments is passed @throws JsUnit.Failure if the actual value does not evaluate to true @param value the value @param comment optional, displayed in the case of failure Checks that a value evaluates to true in the sense that value == true *
+- `assertEvaluatesToFalse()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments is passed @throws JsUnit.Failure if the actual value does not evaluate to true @param value the value @param comment optional, displayed in the case of failure Checks that a value evaluates to false in the sense that value == false *
+- `assertHTMLEquals()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments is passed @throws JsUnit.Failure if the standardized actual value does not equal the standardized expected value @param value2 the actual HTML string @param value1 the expected HTML string @param comment optional, displayed in the case of failure the innerHTML back. Standardizing is done by temporarily creating a DIV, setting the innerHTML of the DIV to the string, and asking for Checks that a value is the same as an HTML string by "standardizing" both and comparing the result for equality. *
+- `assertHashEquals()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments is passed @throws JsUnit.Failure if the actual hash does not evaluate to true @param value the actual hash @param value the expected hash @param comment optional, displayed in the case of failure no key in the actual hash that isn't present in the expected hash. key's value is present in the actual hash and calling assertEquals on the two values, and then checking that there is Checks that a hash is has the same contents as another by iterating over the expected hash and checking that each *
+- `assertRoughlyEquals()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments is passed @throws JsUnit.Failure if the two values are not within tolerance of each other @param tolerance the tolerance @param value1 another value @param value1 a value @param comment optional, displayed in the case of failure Checks that two value are within a tolerance of one another *
+- `assertContains()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments are passed @throws JsUnit.Failure if the collection does not contain the value @param value the value @param collection the collection @param comment optional, displayed in the case of failure Checks that a collection contains a value by checking that collection.indexOf(value) is not -1 *
+- `assertArrayEqualsIgnoringOrder()` — / @throws JsUnitInvalidAssertionArgument if an incorrect number of arguments are passed @throws JsUnit.Failure if the two arrays contain different contents @param array2 second array @param array1 first array @param comment optional, displayed in the case of failure Checks that two arrays have the same contents, ignoring the order of the contents *
+- `assertEqualsIgnoringOrder()` — / @see #assertArrayEqualsIgnoringOrder Synonym for assertArrayEqualsIgnoringOrder *
+- `fail(failureMessage)` — / @param failureMessage the message for the failure Causes a failure *
+- `error(errorMessage)` — / @param errorMessage the message for the error Causes an error *
+- `isLoaded()`
+- `setUp()` — / @private *
+- `tearDown()` — / @private *
+- `SnegopatTrace(message, value, marker)` — Snegopat. TODO: реализовать полноценный трейсер/логгер.
+- `warn()` — Snegopat.
+- `inform()`
+- `info()`
+- `debug()`
+- `JsUnitTestSuite()` — / @constructor JsUnitTestSuite A JsUnitTestSuite represents a suite of JsUnit Test Pages.  Test Pages and Test Suites can be added to a @class *
+- `JsUnitTestSuite.addTestPage(page)` — / @param pageName the path to the Test Page Adds a Test Page to the suite *
+- `JsUnitTestSuite.addTestSuite(suite)` — / @param suite another JsUnitTestSuite object Adds a Test Suite to the suite *
+- `JsUnitTestSuite.containsTestPages()` — / Whether the suite contains any Test Pages *
+- `JsUnitTestSuite.nextPage()` — / Moves the suite on to its next Test Page *
+- `JsUnitTestSuite.hasMorePages()` — / Whether the suite has more Test Pages *
+- `JsUnitTestSuite.clone()` — / Produces a copy of the suite *
+- `setJsUnitTracer(aJsUnitTracer)` — For legacy support - JsUnitTestSuite used to be called jsUnitTestSuite Snegopat. По неизвестным мне причинам эта конструкция приводит к тому, что движок Снегопата перестает видеть макросы. var jsUnitTestSuite = JsUnitTestSuite; Snegopat.
+- `jsUnitGetParm(name)`
+- `x()`

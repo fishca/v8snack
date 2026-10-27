@@ -1,0 +1,47 @@
+## `snegopat/addins/std/marked.js`
+
+- Язык: **JScript**, строк: **1295**, объявлений: **41**
+- Назначение: Markdown ������
+- Состав: func — 11, method — 30
+
+- `Lexer(options)` — / Block Lexer *
+- `Lexer.lex(src)` — / Preprocessing *
+- `Lexer.token(src, top, bq)` — / Lexing *
+- `InlineLexer(links, options)` — / Inline Lexer & Compiler *
+- `InlineLexer.output(src)` — / Lexing/Compiling *
+- `InlineLexer.outputLink(cap, link)` — / Compile Link *
+- `InlineLexer.smartypants(text)` — / Smartypants Transformations *
+- `InlineLexer.mangle(text)` — / Mangle Links *
+- `Renderer(options)` — / Renderer *
+- `Renderer.code(code, lang, escaped)`
+- `Renderer.blockquote(quote)`
+- `Renderer.html(html)`
+- `Renderer.heading(text, level, raw)`
+- `Renderer.hr()`
+- `Renderer.list(body, ordered)`
+- `Renderer.listitem(text)`
+- `Renderer.paragraph(text)`
+- `Renderer.table(header, body)`
+- `Renderer.tablerow(content)`
+- `Renderer.tablecell(content, flags)`
+- `Renderer.strong(text)` — span level renderer
+- `Renderer.em(text)`
+- `Renderer.codespan(text)`
+- `Renderer.br()`
+- `Renderer.del(text)`
+- `Renderer.link(href, title, text)`
+- `Renderer.image(href, title, text)`
+- `Renderer.text(text)`
+- `Parser(options)` — / Parsing & Compiling *
+- `Parser.parse(src)` — / Parse Loop *
+- `Parser.next()` — / Next Token *
+- `Parser.peek()` — / Preview Next Token *
+- `Parser.parseText()` — / Parse Text Tokens *
+- `Parser.tok()` — / Parse Current Token *
+- `escape(html, encode)` — / Helpers *
+- `unescape(html)`
+- `replace(regex, opt)`
+- `noop()`
+- `merge(obj)`
+- `marked(src, opt, callback)` — / Marked *
+- `done(err)`

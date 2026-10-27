@@ -1,0 +1,43 @@
+## `snegopat/addins/RegExpEditor.js`
+
+- Язык: **JScript**, строк: **361**, объявлений: **37**
+- Назначение: Редактор регулярных выражений
+- Состав: func — 3, method — 34
+
+- `getDefaultMacros()` — дважды щелкает мышью по названию скрипта в окне Снегопата. */ Возвращает название макроса по умолчанию - вызывается, когда пользователь
+- `CreateRegExpEditor()` — { RegExpEditor
+- `_RegExpEditor()`
+- `_RegExpEditor.open(owner)`
+- `_RegExpEditor.addRow(parent, resultName, resultValue, groupHeader)`
+- `_RegExpEditor.expandResultTree(expandAll)`
+- `_RegExpEditor.expandMatches()`
+- `_RegExpEditor.collapseMatches()`
+- `_RegExpEditor.getPattern()`
+- `_RegExpEditor.getFlags()`
+- `_RegExpEditor.updateRegExpObject()`
+- `_RegExpEditor.clearResultTree()`
+- `_RegExpEditor.updateResultTree()`
+- `_RegExpEditor.addMatches(matches)`
+- `_RegExpEditor.initRegExpFormProps(reSource, i, g, m)`
+- `_RegExpEditor.setTextWindow(textWindow)`
+- `_RegExpEditor.fillHelpers()` — { RegExpEditor - Хелперы
+- `_RegExpEditor.addHelper(pattern, hint, category)`
+- `_RegExpEditor.OnOpen()` — { _RegExpEditor - Обработчики событий формы
+- `_RegExpEditor.RegExSourceOnChange(Control)`
+- `_RegExpEditor.IgnoreCaseOnChange(Control)`
+- `_RegExpEditor.GlobalOnChange(Control)`
+- `_RegExpEditor.MultilineOnChange(Control)`
+- `_RegExpEditor.ResultTreeOnRowOutput(Control, RowAppearance, RowData)`
+- `_RegExpEditor.TestStringOnChange(Control)`
+- `_RegExpEditor.TreeCmdBarExpandAll(Control)`
+- `_RegExpEditor.TreeCmdBarCollapseAll(Control)`
+- `_RegExpEditor.TreeCmdBarUpdateResults(Control)`
+- `_RegExpEditor.RegExpHelpersSelection(Control, SelectedRow, Column, DefaultHandler)`
+- `_RegExpEditor.RegExpHelpersOnActivateRow(Control)`
+- `_RegExpEditor.btHelpClick(Элемент)`
+- `_RegExpEditor.btOkClick(Элемент)`
+- `_RegExpEditor.CmdBarAddSlashes(Кнопка)`
+- `_RegExpEditor.CmdBarRemoveSlashes(Кнопка)`
+- `_RegExpEditor.CmdBarAddDoubleQuotes(Кнопка)`
+- `_RegExpEditor.CmdBarRemoveDoubleQuotes(Кнопка)`
+- `_RegExpEditor.CmdBarRemoveNewLines(Кнопка)`

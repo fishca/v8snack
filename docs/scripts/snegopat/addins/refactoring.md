@@ -1,0 +1,59 @@
+## `snegopat/addins/refactoring.js`
+
+- Язык: **JScript**, строк: **758**, объявлений: **53**
+- Назначение: Рефакторинг
+- Состав: func — 10, macro — 6, method — 37
+
+- `macrosВыделить метод (extract method)()` — { Макросы
+- `macrosВыделить переменную (extract variable)()`
+- `macrosПереименовать переменную (rename variable)()`
+- `macrosПоказать список процедур и функций модуля()`
+- `macrosСоздать заглушку для несуществующего метода()`
+- `macrosИз процедуры в функцию и обратно()`
+- `refactor(refactorerClass, withoutSelection)` — } Макросы
+- `FuncToProc(module)`
+- `FuncToProc.refactor(selectedText)`
+- `MethodListForm(module)` — { MethodListForm
+- `MethodListForm.selectMethod()`
+- `MethodListForm.MethodListSelection(Control, SelectedRow, Column, DefaultHandler)`
+- `MethodListForm.MethodListOnRowOutput(Control, RowAppearance, RowData)`
+- `MethodListForm.CmdBarSortByName(button)`
+- `MethodListForm.CmdBarDoNotFilter(button)`
+- `MethodListForm.CmdBarMainОК(Кнопка)`
+- `MethodListForm.OnOpen()`
+- `MethodListForm.BeforeClose(Cancel, StandardHandler)`
+- `MethodListForm.fillMethodList(newText)`
+- `MethodListForm.sortMethodList(sortByName)`
+- `MethodListForm.saveSettings()`
+- `CreateMethodStubRefactoring(module)` — { CreateMethodStubRefactoring
+- `CreateMethodStubRefactoring.refactor(selectedText)`
+- `RenameVariableRefactoring(module)` — { RenameVariableRefactoring
+- `RenameVariableRefactoring.refactor(selectedText)`
+- `RenameVariableRefactoring.BtVarOKClick(Control)`
+- `RenameVariableRefactoring.BtVarCancelClick(Control)`
+- `RenameVariableRefactoring.NameОкончаниеВводаТекста(Элемент, Текст, Значение, СтандартнаяОбработка)`
+- `getRegExpVar(curVar)`
+- `RenameVariableRefactoring.renameVariable(source)`
+- `ExtractVariableRefactoring(module)` — { ExtractVariableRefactoring
+- `ExtractVariableRefactoring.refactor(selectedText)`
+- `ExtractVariableRefactoring.BtVarOKClick(Control)`
+- `ExtractVariableRefactoring.BtVarCancelClick(Control)`
+- `ExtractVariableRefactoring.NameОкончаниеВводаТекста(Элемент, Текст, Значение, СтандартнаяОбработка)`
+- `ExtractVariableRefactoring.extractVariable(source)`
+- `ExtractMethodRefactoring(module)` — { ExtractMethodRefactoring
+- `ExtractMethodRefactoring.getVarRe(varName)`
+- `GetProcVars(selectedText)`
+- `ExtractMethodRefactoring.refactor(selectedText)`
+- `ExtractMethodRefactoring.fillParams(extArgs, extVars, source)`
+- `ExtractMethodRefactoring.fillReturnValues(extArgs, extVars, source)`
+- `ExtractMethodRefactoring.getCodeContext(code)`
+- `ExtractMethodRefactoring.addParam(paramName, isParam, isVal)`
+- `ExtractMethodRefactoring.addReturnValue(varName)`
+- `ExtractMethodRefactoring.BtOKClick(Control)`
+- `ExtractMethodRefactoring.BtCancelClick(Control)`
+- `ExtractMethodRefactoring.extractMethod(source)`
+- `ExtractMethodRefactoring.prepareSource(source)`
+- `TextChangesWatcher(field, ticks, invoker)` — Класс для отслеживания изменения текста в поле ввода, для замены события АвтоПодборТекста. Штатное событие плохо тем, что не возникает - при установке пустого текста - при изменении текста путем вставки/вырезания из/в буфера обмена - при отмене редактирования (Ctrl+Z) не позволяет регулировать задержку Параметры конструктора field - элемент управления поле ввода, чье изменение хотим отслеживать ticks - величина задержки после ввода текста в десятых секунды (т.е. 3 - 300 мсек) invoker - функция обратного вызова, вызывается после окончания изменения текста, новый текст передается параметром функции
+- `TextChangesWatcher.start()` — Начать отслеживание изменения текста
+- `TextChangesWatcher.stop()` — Остановить отслеживание изменения текста
+- `TextChangesWatcher.onTimer()` — Обработчик события таймера

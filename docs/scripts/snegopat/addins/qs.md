@@ -1,0 +1,40 @@
+## `snegopat/addins/qs.js`
+
+- Язык: **JScript**, строк: **459**, объявлений: **34**
+- Назначение: Быстрый поиск
+- Состав: func — 19, method — 15
+
+- `prepareAllQueries()`
+- `closeAllQueries()`
+- `doSearch(search, type)`
+- `Database()`
+- `Database.open(path)`
+- `Database.close()`
+- `Database.isOpen()`
+- `Database.findFullText(pattern)`
+- `Database.findAllText(pattern)`
+- `Database.initStruct()`
+- `Database.insertModule(modName, obj, prop)`
+- `Database.insertLine(line, modid, num)`
+- `Database.setModuleChanged(obj, name)`
+- `Database.deleteModules(name)`
+- `Database.clearChanged()`
+- `Database.begin()`
+- `Database.end()`
+- `MetaDataEvent(mdp)` — Отслеживание событий метаданных для поддержания актуальности поисковой базы
+- `prepareBase()` — / Начальное заполнение базы данных. Всё старое содержимое удаляется *
+- `processMetaDataObject(from)`
+- `CmdPanelprepare()`
+- `bytesInUtf8(code)`
+- `MatchFromFullText()`
+- `MatchFromFullText.getMatchInfo(row)`
+- `MatchFromAllText(pattern)`
+- `MatchFromAllText.getMatchInfo(row)`
+- `CmdPanelexecute()`
+- `CmdPanelrefreshModules()`
+- `macrosОткрыть()` — / Открытие окна скрипта *
+- `searchResultВыбор(Элемент, row, Колонка, СтандартнаяОбработка)`
+- `ibName()`
+- `ibnameFromConnectionString(cnnString)`
+- `mdObjFullName(object)`
+- `SetDBPath()`

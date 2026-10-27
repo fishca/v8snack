@@ -1,0 +1,55 @@
+## `snegopat/addins/extfiles.js`
+
+- Язык: **JScript**, строк: **1257**, объявлений: **49**
+- Назначение: Внешние файлы
+- Состав: func — 49
+
+- `macrosОткрытьОкноВнешнихФайлов()` — Макрос для вызова окна
+- `macrosСвернутьДеревоВнешнихФайлов()`
+- `macrosРазвернутьДеревоВнешнихФайлов()`
+- `logAddinError(where, error)` — Неожиданная ошибка: в журнал движка (категория addin), чтобы потом можно было разобраться; пользователю сообщение не показываем
+- `isFileTreeActive()`
+- `updateVisibility()`
+- `initCatalogsTable(catalogs)` — { Вспомогательные процедуры и функции.
+- `getAbsolutePath(path)`
+- `ExpandTreeForFile(treeRow, expand)`
+- `dvcsGetCatalogStatus(catalog)`
+- `dvcsGetMissingFiles(catalog, catalogRow)`
+- `dvcsGetFileStatus(pathToFile)`
+- `nameContainsWords(name, filter)` — Все слова фильтра (разделитель — пробелы) входят в имя
+- `clearDirCache()`
+- `isServiceDir(name)` — Служебные каталоги репозиториев в дереве не нужны и содержат тысячи файлов
+- `getDirFiles(path)` — Список содержимого каталога обычными объектами JS (те же свойства и методы, что у 1С-файла, которые использует дерево)
+- `addFiles(path, node)` — Дерево без фильтра: каталоги рекурсивно, у файлов — тип и (при включённом версионном контроле) статус
+- `addFilteredFiles(rootPath, rootRow)` — Дерево по фильтру. Подходящие файлы (все слова фильтра входят в имя, в любом порядке, без учёта регистра; это не регулярное выражение — «(» или «+» в строке поиска не вызывают ошибку) сразу кладутся в нужном виде: деревом по каталогам или плоским списком с путём от корня. Раньше сначала строился плоский список, затем он перестраивался в дерево поиском строк по каждому сегменту пути (много COM-вызовов), а при выключенном показе расширений перестройка зацикливалась.
+- `dirRow(dir, parent)`
+- `walk(path, chain)`
+- `reportMissingCatalog(path)` — Сообщение о недоступном каталоге — один раз до «Обновить»
+- `addCatalogs(catalogs)` — Добавляет в дерево корневые каталоги из таблицы настроек (общие или каталоги базы)
+- `refreshFiles()`
+- `refreshCurrentBranch()`
+- `getRowCatalog(node)`
+- `getConsoleCommand(directory)`
+- `defaultExtensionsTable()`
+- `addExtension(extension)`
+- `canOpenInConfigurator(fileName)`
+- `buildPictureCache(form)`
+- `add(estr, pic)`
+- `getPictureByExtension(fileExtension)`
+- `hookCompareFiles(dlgInfo)`
+- `getDvcsBackendForPath(path)`
+- `registerDiffBackend(description, caller)`
+- `registerDvcsBackend(description, caller)`
+- `loadDiffBackends()`
+- `add(estr, caller)`
+- `loadDvcsBackends()`
+- `getSettingsVersionCaption()`
+- `tuneSettingsButtons()`
+- `saveSettings()`
+- `loadCatalogsSetting(catalogs, catalogsRows)`
+- `getDefaultMacros()` — дважды щелкает мышью по названию скрипта в окне Снегопата. */ Возвращает название макроса по умолчанию - вызывается, когда пользователь
+- `chooseCatalog()`
+- `addSettingsCatalog(control, cancel, copy)`
+- `statusColor(status)` — Цвет фона для статуса версионного контроля (undefined, если для статуса цвета нет)
+- `rebuildStatusColors()`
+- `openAfterStart(action)` — Открытие панели на старте откладываем: в момент загрузки скриптов платформа (8.3.27) ещё не готова к созданию форм — падение в nuke83.dll и каскад ошибок движка. Ждём 3 с и выхода из модального режима.

@@ -1,0 +1,62 @@
+## `snegopat/addins/FuncProcPanel.js`
+
+- Язык: **JScript**, строк: **2098**, объявлений: **56**
+- Назначение: Панель функ/проц с группировкой по контексту компиляции
+- Состав: func — 13, macro — 2, method — 41
+
+- `macrosОткрыть окно()` — СтруктураМетодаOnRowOutput  { Макросы
+- `macrosTest()`
+- `getPredefinedHotkeys(predef)`
+- `getDefaultMacros()` — дважды щелкает мышью по названию скрипта в окне Снегопата. */ Возвращает название макроса по умолчанию - вызывается, когда пользователь
+- `FuncProcPanel()` — } Макросы
+- `FuncProcPanel.InvisiblePanelSelectAndHide(Button)`
+- `FuncProcPanel.FunctionListMethodПриИзменении(Элемент)`
+- `FuncProcPanel.Show()`
+- `FuncProcPanel.Close()`
+- `FuncProcPanel.IsOpen()`
+- `FuncProcPanel.GetList()`
+- `FuncProcPanel.InvisiblePanelAddSubscriptionAtServer(Button)`
+- `getTextBlockOffset(str)`
+- `FuncProcPanel.CreateTreeManagmentForm(text, tree)`
+- `StringInternalInXml(вхСтрока)`
+- `FuncProcPanel.CreateTreeDicForm(form, tree)`
+- `FuncProcPanel.beforeExitApp()`
+- `FuncProcPanel.OnOpen()`
+- `FuncProcPanel.Reload()`
+- `FuncProcPanel.OnClose()`
+- `FuncProcPanel.CmdBarTreeView(Button)`
+- `FuncProcPanel.expandTree()`
+- `FuncProcPanel.getGroupRow(methodData)`
+- `FuncProcPanel.Filter(filterString)`
+- `FuncProcPanel.viewFunctionList(newFilter)`
+- `FuncProcPanel.CmdBarActivate(Button)`
+- `FuncProcPanel.CmdBarДействиеВывестиВызовы(Button)`
+- `FuncProcPanel.showCallers(curRow)`
+- `FuncProcPanel.CmdBarReloadFunc(Button)`
+- `FuncProcPanel.activateEditor()`
+- `FuncProcPanel.goToLine(row)`
+- `FuncProcPanel.FuncProcOnRowOutput(Control, RowAppearance, RowData)`
+- `FuncProcPanel.FuncProcOnSelection(Элемент, ВыбраннаяСтрока, Колонка, СтандартнаяОбработка)`
+- `FuncProcPanel.moveFunc(func, forward)`
+- `getMethod(methods, name)`
+- `FuncProcPanel.moveFuncUp()`
+- `FuncProcPanel.moveFuncDown()`
+- `FuncProcPanel.onIdle()`
+- `FuncProcPanel.updateList()`
+- `FuncProcPanel.moveRowCursor(forward)`
+- `getNextRow(curRow, rows)`
+- `FuncProcPanel.getMethod(methods, name)`
+- `FuncProcPanel.walkMethods(row, method, req)`
+- `FuncProcPanel.goToFunction(row)`
+- `getMdObj(rootObject, callArray)`
+- `foundMethod(nameMethod, es)`
+- `FuncProcPanel.FunctionListПриАктивизацииСтроки(Элемент)`
+- `getMethod(methods, name)`
+- `FuncProcPanel.CmdBarВыводитьВызовы(Button)`
+- `TextWindowsWatcher()` — 33//////////////////////// { TextWindowsWatcher - отслеживает активизацию текстовых окон и запоминает последнее.
+- `TextWindowsWatcher.getActiveTextWindow()`
+- `TextWindowsWatcher.startWatch()`
+- `TextWindowsWatcher.stopWatch()`
+- `TextWindowsWatcher.onTimer(timerId)`
+- `GetFuncProcPanel()` — { StartUp
+- `getMacrosInfo(name, info)` — } end of TextWindowsWatcherGoToLine class

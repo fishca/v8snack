@@ -1,0 +1,53 @@
+## `snegopat/addins/snippets.js`
+
+- Язык: **JScript**, строк: **684**, объявлений: **47**
+- Назначение: Шаблоны кода
+- Состав: func — 13, method — 34
+
+- `macrosВыполнитьПодстановкуШаблона()` — Выполняет подстановку шаблона, выбранного из выпадающего списка шаблонов. */
+- `macrosПерезагрузитьШаблоны()` — Перезагружает список шаблонов (например, после редактирования шаблона). */
+- `macrosОткрытьНастройкиСкрипта()` — Открывает диалог настройки скрипта. */
+- `macrosВставитьРасширеннуюУправляющуюКонструкцию()` — управляющих конструкций. */ Предназначен для использования в штатном редакторе шаблонов для вставки расширенных Позволяет вставлять расширенные управляющие конструкции шаблонов из списка выбора.
+- `getDefaultMacros()` — дважды щелкает мышью по названию скрипта в окне Снегопата. */ Возвращает название макроса по умолчанию - вызывается, когда пользователь
+- `SnippetsManager()` — { SnippetsManager
+- `SnippetsManager.loadTemplates()`
+- `SnippetsManager.reloadTemplates()`
+- `SnippetsManager.loadStFile(filename)`
+- `SnippetsManager._loadStElement(stElement)`
+- `SnippetsManager._addSnippet(stElement)`
+- `SnippetsManager.createSnippetMacros(snippet)`
+- `SnippetsManager.getSnippetsByName(name)`
+- `SnippetsManager.insertSnippet()`
+- `SnippetsManager.selectValue(values)`
+- `SnippetsManager.onProcessTemplate(params)`
+- `SnippetParametersManager()` — { SnippetParametersManager
+- `SnippetParametersManager.initExtendedParams()`
+- `f(c)` — которых могут меняться в результате изменения конфигурации. */ Используется для определения управляющих конструкций, значения подстановки
+- `SnippetParametersManager.getAllParams()`
+- `SnippetParametersManager.replaceExtendedParams(tpl)`
+- `SnippetParametersManager.getTemplateParams(tpl)`
+- `SnippetParametersManager.calcParamValue(key)`
+- `SnippetParametersManager.processAddMacrosDirective(tpl)` — Обрабатывает служебную директиву шаблона <%Макрос: Имя макроса> */
+- `Snippet(stElement)` — { Snippet
+- `Snippet._initTemplateText(tpl)`
+- `Snippet.hasMacros()`
+- `Snippet.getCursorCoord(tpl, selectedRowsCount)` — Возвращает null, если маркер не найден. */ col - индекс колонки в строке. Нумерация строк и колонок - с 0. Возвращает анонимный объект с двумя свойствами row - индекс строки и Вычисляет относительные координаты положения маркера курсора в шаблоне.
+- `Snippet.parseTemplateString(tpl)` — Выполняет подстановку значений в шаблон. */
+- `Snippet.insert(textWindow)` — Выполняет подстановку шаблона в текст */
+- `Snippet.getSelection(textWindow)` — эту строку исключаем из выделения. */ - если все символы из последней строки, попавшие в выделение - пробельные, то пробельные символы, то выделение начинаем с первого символа первой строки; - если первая строка выделена не с начала, но левее выделения в первой строке только номера последней строки: Корректировка заключается в изменении  колонки в первой строке и Корректирует текущее выделение блока и возвращает выделение (ISelection).
+- `SettingsManagerDialog(settings)` — { SettingsManagerDialog
+- `SettingsManagerDialog.Open()`
+- `SettingsManagerDialog._saveSettings()`
+- `SettingsManagerDialog.CmdBarSaveAndClose(button)`
+- `SettingsManagerDialog.CmdBarSave(button)`
+- `SettingsManagerDialog.CmdBarClose(button)`
+- `SettingsManagerDialog.CmdBarAbout(button)`
+- `SettingsManagerDialog.selectTemplateFiles(multiselect)`
+- `SettingsManagerDialog.CmdBarStListAddStFile(button)`
+- `SettingsManagerDialog.CmdBarStListDeleteStFile(button)`
+- `SettingsManagerDialog.TemplateFilesListValueStartChoice(Control, DefaultHandler)`
+- `SettingsManagerDialog.OnOpen()`
+- `SettingsManagerDialog.BeforeClose(Cancel, StandardHandler)`
+- `getDefaultTemplatesList()` — { Вспомогательные функции.
+- `getAbsolutePath(path)`
+- `GetSnippetsManager()` — { Startup
