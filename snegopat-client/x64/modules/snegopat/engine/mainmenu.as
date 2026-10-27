@@ -26,6 +26,7 @@ const uint MM_POPUP_NUM = 1;        // popup «Снегопат»
 const uint MM_SETTINGS_NUM = 2;     // «Настройки Снегопата»
 const uint MM_SERVICE_BAND_NUM = 52;   // панель меню «Сервис» (команда {B78F2E80}/52, найдено перебором главного меню)
 const uint64 MM_WEIGHT_POPUP = 0x4059000000000000;    // 100.0: в конец меню «Сервис»
+const uint64 MM_WEIGHT_SEP = 0x4058C00000000000;      // 99.0: разделитель перед «Снегопатом»
 const uint64 MM_WEIGHT_ITEM = 0x3ff0000000000000;     // 1.0
 
 #if (ver >= 8.3.27 & ver < 8.3.28)
@@ -383,11 +384,33 @@ bool mmBuild() {
         return true;
     }
     int_ptr sv = mem::int_ptr[src];
-    int_ptr mainItems = mmAlloc(MM_ITEM_SIZE);
-    mem::memcpy(mainItems, mmItem(tmplPopup, MM_GROUP, MM_POPUP_NUM, MM_WEIGHT_POPUP), MM_ITEM_SIZE);
+    // разделитель перед «Снегопатом»: образец — пункт с нулевой группой из панели «Сервис»
+    int_ptr sepTmpl = 0;
+    int_ptr bandSvc = mmBand(manager, mmNewCid(MM_FRAME, MM_SERVICE_BAND_NUM));
+    if (bandSvc != 0) {
+        int_ptr b0 = mem::int_ptr[bandSvc + 0x30];
+        int_ptr e0 = mem::int_ptr[bandSvc + 0x38];
+        for (int_ptr p = b0; p < e0; p += 8) {
+            int_ptr it = mem::int_ptr[p];
+            if (it != 0 && mem::int_ptr[it] == 0 && mem::int_ptr[it + 8] == 0) {
+                sepTmpl = it;
+                break;
+            }
+        }
+    }
+    diag("mainmenu", "образец разделителя: " + dbgHex(sepTmpl));
+    int_ptr mainItems = mmAlloc(MM_ITEM_SIZE * 2);
+    uint mainCount = 0;
+    if (sepTmpl != 0) {
+        mem::memcpy(mainItems, sepTmpl, MM_ITEM_SIZE);
+        mem::int_ptr[mainItems + 0x30] = int_ptr(MM_WEIGHT_SEP);
+        mainCount = 1;
+    }
+    mem::memcpy(mainItems + mainCount * MM_ITEM_SIZE, mmItem(tmplPopup, MM_GROUP, MM_POPUP_NUM, MM_WEIGHT_POPUP), MM_ITEM_SIZE);
+    mainCount++;
     int_ptr popItems = mmAlloc(MM_ITEM_SIZE);
     mem::memcpy(popItems, mmItem(tmplLeaf, MM_GROUP, MM_SETTINGS_NUM, MM_WEIGHT_ITEM), MM_ITEM_SIZE);
-    mmCall(mem::int_ptr[sv + MM_SLOT_ADDBAND * 8], src, mmNewCid(MM_FRAME, MM_SERVICE_BAND_NUM), mmVector(mainItems, 1), 0);
+    mmCall(mem::int_ptr[sv + MM_SLOT_ADDBAND * 8], src, mmNewCid(MM_FRAME, MM_SERVICE_BAND_NUM), mmVector(mainItems, mainCount), 0);
     mmCall(mem::int_ptr[sv + MM_SLOT_ADDBAND * 8], src, mmNewCid(MM_GROUP, MM_POPUP_NUM), mmVector(popItems, 1), 0);
     mmCall(mem::int_ptr[sv + MM_SLOT_FINISH * 8], src);
     // 3. обработка команд: состояние и выполнение
