@@ -56,7 +56,8 @@ def _string_rva(pe, s):
 
 
 def state(path):
-    data = open(path, 'rb').read()
+    with open(path, 'rb') as f:
+        data = f.read()
     pe = pefile.PE(data=data)
     old_b = OLD_CLASS.encode('utf-16-le') + b'\x00\x00'
     fo = _file_offset(pe, FORCE_MATCH_RVA)
@@ -77,7 +78,8 @@ def apply(path):
         return st
     if st != 'old':
         return st
-    data = open(path, 'rb').read()
+    with open(path, 'rb') as f:
+        data = f.read()
     pe = pefile.PE(data=data)
     old_b = OLD_CLASS.encode('utf-16-le') + b'\x00\x00'
     new_b = NEW_CLASS.encode('utf-16-le') + b'\x00\x00'

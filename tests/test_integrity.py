@@ -58,7 +58,8 @@ class TestPEArch(unittest.TestCase):
 
 class TestVersion(unittest.TestCase):
     def test_version_json(self):
-        d = json.load(open(os.path.join(X64, "version.json"), encoding="utf-8"))
+        with open(os.path.join(X64, "version.json"), encoding="utf-8") as f:
+            d = json.load(f)
         self.assertIn("ours", d)
         self.assertIn("core_as", d)
         self.assertIn("released", d)

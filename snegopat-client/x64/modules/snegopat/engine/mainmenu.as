@@ -220,7 +220,8 @@ void mmSetCommandText(const string& group, uint num, const string& text) {
     ICmdDescription&& d;
     cs.commandDescription(d, id);
     if (d is null) {
-        diagAlways("mainmenu", "нет описания команды " + group + "/" + num);
+        // на 8.5 commandDescription для наших команд возвращает null (docs/ISSUES.md P0-3) — это норма, не шумим в журнал
+        diag("mainmenu", "нет описания команды " + group + "/" + num);
         return;
     }
     int_ptr b = d.self - 0x70;

@@ -157,7 +157,8 @@ _ERR_RE = re.compile(r"^#\s*err\b(.*)$", re.I)
 
 
 def read_v(path):
-    raw = open(path, "rb").read()
+    with open(path, "rb") as f:
+        raw = f.read()
     for enc in ("utf-8-sig", "cp1251"):
         try:
             return raw.decode(enc).splitlines()

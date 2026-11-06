@@ -23,6 +23,14 @@
 
 1. `starter.exe` (x86-процесс) запускается пользователем до Конфигуратора; его скриптовый модуль `starter` (`src/main.as`) создаёт объект `StarterInterProcess` (см. [08-main-starter.md](08-main-starter.md)) и окно класса `Core.As.Starter` для IPC.
 2. Стартер через `lib/x64/inject.dll` внедряет `core_as.dll` в процесс `1cv8.exe` (x64) и загружает модуль `snegopat`.
+   Решение о внедрении принимает **гейт загрузки** `modules/snegopat/lib/x64/test.dll`: запись
+   `test = test.dll, isNeedLoad` в `load/snegopat.txt` (ключ `test` разбирается загрузчиком,
+   `core_as_loader/src/starter/modules_list.cpp:61`) указывает DLL с экспортом-«вопросом».
+   `isNeedLoad()` (исходник `snegopat_modul/src/test_load_dll/dllmain.cpp`) возвращает false,
+   если задана переменная окружения `NOSNEGOPAT` или в командной строке есть `-nosnegopat`;
+   true — только для процессов Конфигуратора (`designer`/`config` в командной строке) с базой
+   (`/f`, `/s`, `/ibname`, `/ibconnectionstring`). Поэтому DLL «test.dll» — не тестовый артефакт,
+   а обязательная часть поставки, и в клиент 1С Снегопат не внедряется.
 3. `core_as.dll` компилирует модуль (папки из `module.info`), регистрирует API из `.v`, вызывает скриптовую `main(array<string>&&)`.
 4. Нативная `snegopat.dll` (заявлена в `lib` модуля) WH_CBT-хуком ловит создание окна заставки 1С и вызывает экспортируемую из скриптов функцию **`run()`** — в этот момент все DLL платформы загружены, но основное окно ещё не создано, и часть вызовов ещё небезопасна (main.as:1-9).
 5. `run()` (main.as:24-39) выполняет раннюю инициализацию:

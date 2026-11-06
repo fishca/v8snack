@@ -3,6 +3,18 @@
 Состояние на 2026-10-27, версия 1.6.43. Документ дополняет `docs/SCRIPTS.md`
 (карта скриптов) и `ANALYSIS.md` (архитектура, vtable, тесты).
 
+**Обновление 2026-11-06.** Выполнено без запуска 1С: P1-1 — восстановлены `tools/MAINMENU.md`,
+`tools/ADAPT.md`, `tools/DISABLED-27.md` (по коду; ссылки из `mainmenu.as`, `diag.as`,
+`sqlcolors.as`, `probe_ifaces.as`, `silence.js`, `std/main.js` теперь разрешаются);
+P0-3 (безопасная часть) — шум `diagAlways` «нет описания команды» в `mmSetCommandText`
+переведён на `diag` (полный текст пунктов и так ставится через `setText`);
+P3-4 — `package.py` пакует весь `snegopat-client`, `snegopat_colors85.dll` и `tools/*.md`
+в релизный zip попадают. Уточнение: `lib/x64/test.dll` — **не мусор**, а гейт загрузки
+(экспорт `isNeedLoad`: не внедрять при `NOSNEGOPAT`/`-nosnegopat`, внедрять только
+в Конфигуратор с базой; ключ `test` в `load/snegopat.txt`, см. `docs/angelscript/00-overview.md`) —
+из поставки не убирать. tests/README.md приведён в соответствие с `SUPPORTED`
+(8.3.28 и 8.5.1 поддерживаются), README.md синхронизирован с `version.json` (1.6.43).
+
 ## 0. Сводка состояния
 
 | Платформа | Движок | Меню «Снегопат» | Раскраска запросов | Аддины (настройки, справка, панель окон) |

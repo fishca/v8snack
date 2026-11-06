@@ -113,7 +113,8 @@ def main():
         return r.get("result")
 
     # 17: локальный дамп и модули
-    d17 = [r for r in records(open(a.dump17, "rb").read()) if r[0] == a.tag][-1]
+    with open(a.dump17, "rb") as f:
+        d17 = [r for r in records(f.read()) if r[0] == a.tag][-1]
     m17 = modules_local(a.pid17)
     b17, n17, f17 = find_module(m17, d17[2])
     # 27: дамп с клиента и модули
@@ -132,7 +133,8 @@ def main():
     if not os.path.exists(p27):
         os.makedirs(os.path.dirname(p27), exist_ok=True)
         r = call("sys.read", {"path": f27, "b64": True, "max": 64 << 20})
-        open(p27, "wb").write(base64.b64decode(r["b64"]))
+        with open(p27, "wb") as f:
+            f.write(base64.b64decode(r["b64"]))
     im17, im27 = v8re.Image(p17), v8re.Image(p27)
     s17 = [x - b17 for x in d17[3]]
     s27 = [x - b27 for x in d27[3]]
@@ -153,7 +155,8 @@ def main():
         print("   27: %s" % show(im27, s27[s27n]))
         delta = s27n - s
         print("   сдвиг %+d%s" % (delta, ("  => число пропуска в .v: %d -> %d" % (a.old_skip, a.old_skip + delta)) if a.old_skip is not None else ""))
-    json.dump({"s17": s17, "s27": s27, "module": n27}, open(os.path.join(RES, "vt-tag%d.json" % a.tag), "w"))
+    with open(os.path.join(RES, "vt-tag%d.json" % a.tag), "w") as f:
+        json.dump({"s17": s17, "s27": s27, "module": n27}, f)
 
 
 if __name__ == "__main__":

@@ -107,7 +107,8 @@ STDLIB_NAMES = {"IID_IUnknown", "IID_IDispatch", "INVALID_HANDLE_VALUE"}
 
 
 def _decode(path):
-    raw = open(path, "rb").read()
+    with open(path, "rb") as f:
+        raw = f.read()
     for enc in ("utf-8-sig", "cp1251"):
         try:
             return raw.decode(enc)

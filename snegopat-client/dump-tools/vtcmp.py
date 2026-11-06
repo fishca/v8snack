@@ -24,7 +24,8 @@ import vtalign  # noqa: E402
 
 
 def parse(path):
-    t = open(path, encoding="utf-8", errors="replace").read()
+    with open(path, encoding="utf-8", errors="replace") as f:
+        t = f.read()
     mod = re.search(r"Vtable in (\S+)", t)
     fs = [(int(a), b.strip(), int(c, 16)) for a, b, c in
           re.findall(r"Function (\d+)([^\n]*)\n\s+address is 0x[0-9A-Fa-f]+ - offset is 0x([0-9A-Fa-f]+)", t)]
@@ -47,7 +48,8 @@ class Images:
             os.makedirs(self.folder, exist_ok=True)
             try:
                 r = self.hub.call(self.agent, "sys.read", {"path": self.remote.rstrip("/") + "/" + module, "b64": True, "max": 128 << 20}, timeout=900)
-                open(p, "wb").write(base64.b64decode(r["b64"]))
+                with open(p, "wb") as f:
+                    f.write(base64.b64decode(r["b64"]))
             except SystemExit:
                 pass
         self.cache[module] = v8re.Image(p) if os.path.exists(p) else None

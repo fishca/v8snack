@@ -21,7 +21,12 @@ class Image:
         self.path = path
         self.pe = pefile.PE(path, fast_load=True)
         self.base = self.pe.OPTIONAL_HEADER.ImageBase
-        self.data = open(path, "rb").read()
+        self.data = self._read_all(path)
+
+    @staticmethod
+    def _read_all(path):
+        with open(path, "rb") as f:
+            return f.read()
         self.secs = [(s.Name.rstrip(b"\0").decode(), s.VirtualAddress, max(s.Misc_VirtualSize, s.SizeOfRawData),
                       s.PointerToRawData, s.SizeOfRawData, s.Characteristics) for s in self.pe.sections]
         self._funcs = None
